@@ -1,0 +1,144 @@
+/* === General Styles === */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff5f7;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #b3003b;
+  margin-top: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.date, .venue {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.invitation-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* === Countdown Styles === */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.countdown div {
+  background-color: #ffe4ec;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100px;
+  font-size: 1.4rem;
+  color: #b3003b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.countdown span {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* === QR Code Section === */
+.qr-section {
+  margin-top: 2rem;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.qr-code {
+  width: 160px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* === Music Button === */
+.play-button {
+  background-color: #dc143c;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: #a30022;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .date, .venue {
+    font-size: 1rem;
+  }
+
+  .countdown {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .countdown div {
+    width: 70px;
+    font-size: 1.2rem;
+  }
+
+  .qr-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qr-code {
+    max-width: 140px;
+    width: 100%;
+  }
+
+  .play-button {
+    width: 80%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+}

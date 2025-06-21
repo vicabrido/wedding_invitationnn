@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raymond & Haydee Jane's Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 🎵 Music Setup -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- ▶️ Play Button -->
+  <button onclick="document.getElementById('bg-music').play()" class="play-button">
+    ▶️ Play Music
+  </button>
+
+  <div class="invitation-container">
+    <h1>You're Invited!</h1>
+    <h2>Raymond & Haydee Jane</h2>
+    <p class="date">December 21, 2025 | 12:21 PM</p>
+    <p class="venue">Saint Anthony Abbott Parish<br>Reception at Resort Balai Alexandra</p>
+
+    <div class="countdown">
+      <div><span id="days">00</span><br>Days</div>
+      <div><span id="hours">00</span><br>Hours</div>
+      <div><span id="minutes">00</span><br>Minutes</div>
+      <div><span id="seconds">00</span><br>Seconds</div>
+    </div>
+
+    <div class="qr-section">
+      <h3>📍 Ceremony & Reception Locations</h3>
+      <div class="qr-container">
+        <div>
+          <p>Saint Anthony Abbott Parish</p>
+          <img src="qr-ceremony.png" alt="QR to Ceremony" class="qr-code" />
+        </div>
+        <div>
+          <p>Resort Balai Alexandra</p>
+          <img src="qr-reception.png" alt="QR to Reception" class="qr-code" />
+        </div>
+      </div>
+    </div>
+
+    <p class="footer">We can't wait to celebrate with you!</p>
+  </div>
+
+  <script src="countdown.js"></script>
+</body>
+</html>
