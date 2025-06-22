@@ -4,52 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raymond & Haydee Jane's Wedding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    @font-face {
+      font-family: 'AmsterdamFour';
+      src: url('AmsterdamFour.ttf') format('truetype');
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 🎵 Music Setup -->
+  <!-- Background Music -->
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
   </audio>
+  <button onclick="document.getElementById('bg-music').play()" class="play-button"▶️ Play Music</button>
 
-  <!-- ▶️ Play Button -->
-  <button onclick="document.getElementById('bg-music').play()" class="play-button">
-    ▶️ Play Music
-  </button>
+  <!-- Glitter Effect -->
+  <div class="glitter-container"></div>
 
+  <!-- Save the Date -->
+  <div class="save-the-date-section">
+    <div class="save-text-wrapper">
+      <span class="save-date-word">Save</span>
+      <span class="save-date-small">the</span>
+      <span class="save-date-word">Date</span>
+    </div>
+  </div>
+
+  <!-- Invitation Content -->
   <div class="invitation-container">
-    <h1>You're Invited!</h1>
-    <h2>Raymond & Haydee Jane</h2>
-    <p class="date">December 21, 2025 | 12:21 PM</p>
-    <p class="venue">Saint Anthony Abbott Parish<br>Reception at Resort Balai Alexandra</p>
+    <!-- Flower Decorations (inside container) -->
+    <img src="1.png" class="flower-decor flower-top-left" />
+    <img src="2.png" class="flower-decor flower-top-right" />
+    <img src="3.png" class="flower-decor flower-bottom-left" />
+    <img src="4.png" class="flower-decor flower-bottom-right" />
+
+    <p class="wedding-of">The Wedding Of</p>
+    <h1 class="main-heading">Raymond & Haydee Jane</h1>
+    <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
 
     <div class="countdown">
-      <div><span id="days">00</span><br>Days</div>
-      <div><span id="hours">00</span><br>Hours</div>
-      <div><span id="minutes">00</span><br>Minutes</div>
-      <div><span id="seconds">00</span><br>Seconds</div>
+      <div><span id="days">00</span> Days</div>
+      <div><span id="hours">00</span> Hours</div>
+      <div><span id="minutes">00</span> Minutes</div>
+      <div><span id="seconds">00</span> Seconds</div>
     </div>
 
-    <div class="qr-section">
-      <h3>📍 Ceremony & Reception Locations</h3>
-      <div class="qr-container">
-        <div>
-          <p>Saint Anthony Abbott Parish</p>
-          <img src="qr-ceremony.png" alt="QR to Ceremony" class="qr-code" />
-        </div>
-        <div>
-          <p>Resort Balai Alexandra</p>
-          <img src="qr-reception.png" alt="QR to Reception" class="qr-code" />
-        </div>
-      </div>
+    <!-- Church Section -->
+    <div class="overlay-section" style="background-image: url('church.jpg');">
+      <div class="overlay-text">Saint Anthony Abbot Parish</div>
+      <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+    </div>
+
+    <!-- Reception Section -->
+    <div class="overlay-section" style="background-image: url('reception.jpg');">
+      <div class="overlay-text">Resort Balai Alexandra</div>
+      <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
     </div>
 
     <p class="footer">We can't wait to celebrate with you!</p>
   </div>
 
-  <script src="countdown.js"></script>
+  <!-- Countdown Script -->
+  <script>
+    const countDownDate = new Date("Dec 21, 2025 12:21:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+  </script>
+
+  <!-- Glitter Script -->
+  <script>
+    const glitterContainer = document.querySelector('.glitter-container');
+    for (let i = 0; i < 80; i++) {
+      const g = document.createElement('div');
+      g.classList.add('glitter');
+      g.style.left = Math.random() * 100 + 'vw';
+      g.style.top = (-10 + Math.random() * 20) + 'vh';
+      g.style.animationDelay = Math.random() * 5 + 's';
+      g.style.animationDuration = 5 + Math.random() * 5 + 's';
+      glitterContainer.appendChild(g);
+    }
+  </script>
+
 </body>
 </html>
