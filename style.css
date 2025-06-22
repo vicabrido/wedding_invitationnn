@@ -1,91 +1,165 @@
-/* === General Styles === */
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #fff5f7;
-  color: #333;
+  background: linear-gradient(to bottom right, #f3f7fb, #ffffff);
+  color: #2c3e50;
   text-align: center;
+  overflow-x: hidden;
+  position: relative;
 }
 
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  color: #b3003b;
-  margin-top: 1.5rem;
+.save-the-date-section {
+  padding: 1rem;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'AmsterdamFour', cursive;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
-h2 {
-  font-size: 2rem;
-  margin: 0.5rem 0;
-  color: #555;
+.save-text-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
 
-.date, .venue {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+.save-date-word {
+  font-size: 4rem;
+  text-transform: capitalize;
+}
+
+.save-date-small {
+  font-size: 1.5rem;
+  text-transform: lowercase;
+  margin-top: 1rem;
 }
 
 .invitation-container {
   padding: 2rem;
   max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
+  margin: 2rem auto;
+  background-color: #ffffffd9;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(162, 185, 212, 0.2);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 }
 
-.footer {
-  margin-top: 2rem;
-  font-size: 1rem;
-  font-weight: bold;
+/* Flower Decorations */
+.flower-decor {
+  position: absolute;
+  z-index: 0;
+  width: 120px;
+  pointer-events: none;
+  opacity: 0.9;
 }
 
-/* === Countdown Styles === */
+.flower-top-left { top: 0; left: 0; }
+.flower-top-right { top: 0; right: 0; }
+.flower-bottom-left { bottom: 0; left: 0; }
+.flower-bottom-right { bottom: 0; right: 0; }
+
+.wedding-of {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 1.1rem;
+  color: #5c6d82;
+}
+
+.main-heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  color: #a2b9d4;
+  margin: 1rem 0 0.5rem;
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.date-fancy {
+  font-size: 4rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  letter-spacing: 4px;
+  background-image: url("text-fill.jpg");
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin: 2rem 0 1.5rem;
+  text-transform: uppercase;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 2rem 0;
-}
-
-.countdown div {
-  background-color: #ffe4ec;
-  padding: 1rem;
-  border-radius: 10px;
-  width: 100px;
-  font-size: 1.4rem;
-  color: #b3003b;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: #5c6d82;
 }
 
 .countdown span {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
+  display: block;
+  color: #a2b9d4;
 }
 
-/* === QR Code Section === */
-.qr-section {
+.overlay-section {
   margin-top: 2rem;
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.qr-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+.overlay-text {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+}
+
+.location-btn {
   margin-top: 1rem;
-  flex-wrap: wrap;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #a2b9d4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.qr-code {
-  width: 160px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.footer {
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #777;
 }
 
-/* === Music Button === */
 .play-button {
-  background-color: #dc143c;
+  background-color: #a2b9d4;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -94,51 +168,35 @@ h2 {
   cursor: pointer;
   margin: 1rem auto;
   display: block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 3;
+  position: relative;
 }
 
 .play-button:hover {
-  background-color: #a30022;
+  background-color: #90a9c5;
 }
 
-/* === Responsive Design === */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
+.glitter-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
 
-  h2 {
-    font-size: 1.5rem;
-  }
+.glitter {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
+  border-radius: 50%;
+  animation: glitter-fall 10s linear infinite;
+  opacity: 0.8;
+  filter: blur(0.5px);
+}
 
-  .date, .venue {
-    font-size: 1rem;
-  }
-
-  .countdown {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .countdown div {
-    width: 70px;
-    font-size: 1.2rem;
-  }
-
-  .qr-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .qr-code {
-    max-width: 140px;
-    width: 100%;
-  }
-
-  .play-button {
-    width: 80%;
-    max-width: 300px;
-    font-size: 1rem;
-  }
+@keyframes glitter-fall {
+  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
 }
