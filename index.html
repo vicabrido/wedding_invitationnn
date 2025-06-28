@@ -16,10 +16,16 @@
 <body>
 
   <!-- Background Music -->
-<audio id="bg-music" autoplay loop muted oncanplay="this.muted=false">
+<audio id="bg-music" autoplay loop muted oncanplay="unmuteMusic()">
   <source src="music.mp3" type="audio/mpeg" />
 </audio>
-
+<script>
+  function unmuteMusic() {
+    const a = document.getElementById('bg-music');
+    if (a.muted) a.muted = false;
+  }
+  window.addEventListener('click', unmuteMusic);
+</script>
 
   <!-- Glitter Effect -->
   <div class="glitter-container"></div>
