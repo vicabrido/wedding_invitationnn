@@ -16,15 +16,19 @@
 <body>
 
   <!-- Background Music -->
-<audio id="bg-music" autoplay loop muted oncanplay="unmuteMusic()">
+<div id="music-overlay" class="music-overlay">
+  <button onclick="startMusic()" class="music-button">Tap to Play Music 🎵</button>
+</div>
+
+<audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg" />
 </audio>
+
 <script>
-  function unmuteMusic() {
-    const a = document.getElementById('bg-music');
-    if (a.muted) a.muted = false;
+  function startMusic() {
+    document.getElementById('bg-music').play();
+    document.getElementById('music-overlay').style.display = 'none';
   }
-  window.addEventListener('click', unmuteMusic);
 </script>
 
   <!-- Glitter Effect -->
