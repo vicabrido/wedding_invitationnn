@@ -15,86 +15,97 @@
 </head>
 <body>
 
-  <!-- Background Music -->
-<div id="music-overlay" class="music-overlay">
-  <button onclick="startMusic()" class="music-button">Tap to Play Music 🎵</button>
-</div>
+  <!-- 💌 Envelope Intro -->
+  <div id="envelope" class="envelope-screen">
+    <div class="envelope-flap"></div>       <!-- ▼ top flap -->
+    <div class="envelope-body"></div>       <!-- rectangle body -->
+    
+    <!-- 🎨 Angled bottom flap lines -->
+    <div class="envelope-bottom-lines">
+      <div class="left-line"></div>
+      <div class="right-line"></div>
+    </div>
 
-<audio id="bg-music" loop>
-  <source src="music.mp3" type="audio/mpeg" />
-</audio>
+    <div class="heart-button" onclick="openInvitation()">❤️</div>
+  </div>
 
-<script>
-  function startMusic() {
-    document.getElementById('bg-music').play();
-    document.getElementById('music-overlay').style.display = 'none';
-  }
-</script>
+  <!-- 🎵 Background Music -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
 
-  <!-- Glitter Effect -->
+  <!-- ✨ Glitter Effect -->
   <div class="glitter-container"></div>
 
-  <!-- Save the Date -->
-  <div class="save-the-date-section">
-    <div class="save-text-wrapper">
-      <span class="save-date-word">Save</span>
-      <span class="save-date-small">the</span>
-      <span class="save-date-word">Date</span>
-    </div>
-  </div>
+  <!-- 💍 Main Invitation (initially hidden) -->
+  <div id="invitation" class="hidden">
 
-  <!-- Invitation Content -->
-  <div class="invitation-container">
-    <!-- Flower Decorations -->
-    <img src="1.png" class="flower-decor flower-top-left" />
-    <img src="2.png" class="flower-decor flower-top-right" />
-    <img src="3.png" class="flower-decor flower-bottom-left" />
-    <img src="4.png" class="flower-decor flower-bottom-right" />
-
-    <p class="wedding-of">The Wedding Of</p>
-    <h1 class="main-heading">Raymond & Haydee Jane</h1>
-    <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
-
-    <div class="countdown">
-      <div><span id="days">00</span> Days</div>
-      <div><span id="hours">00</span> Hours</div>
-      <div><span id="minutes">00</span> Minutes</div>
-      <div><span id="seconds">00</span> Seconds</div>
-    </div>
-
-    <!-- Church -->
-    <div class="overlay-section" style="background-image: url('church.jpg');">
-      <div class="overlay-content">
-        <div class="overlay-text">Saint Anthony Abbot Parish</div>
-        <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+    <!-- Save the Date -->
+    <div class="save-the-date-section">
+      <div class="save-text-wrapper">
+        <span class="save-date-word">Save</span>
+        <span class="save-date-small">the</span>
+        <span class="save-date-word">Date</span>
       </div>
     </div>
 
-    <!-- Reception -->
-    <div class="overlay-section" style="background-image: url('reception.jpg');">
-      <div class="overlay-content">
-        <div class="overlay-text">Resort Balai Alexandra</div>
-        <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
-      </div>
-    </div>
+    <div class="invitation-container">
 
-    <p class="footer">We can't wait to celebrate with you!</p>
+      <!-- Corner Flowers -->
+      <img src="1.png" class="flower-decor flower-top-left" />
+      <img src="2.png" class="flower-decor flower-top-right" />
+      <img src="3.png" class="flower-decor flower-bottom-left" />
+      <img src="4.png" class="flower-decor flower-bottom-right" />
+
+      <p class="wedding-of">The Wedding Of</p>
+      <h1 class="main-heading">Raymond & Haydee Jane</h1>
+      <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
+
+      <!-- Countdown -->
+      <div class="countdown">
+        <div><span id="days">00</span> Days</div>
+        <div><span id="hours">00</span> Hours</div>
+        <div><span id="minutes">00</span> Minutes</div>
+        <div><span id="seconds">00</span> Seconds</div>
+      </div>
+
+      <!-- Ceremony -->
+      <div class="overlay-section" style="background-image: url('church.jpg');">
+        <div class="overlay-content">
+          <div class="overlay-text">Saint Anthony Abbot Parish</div>
+          <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+        </div>
+      </div>
+
+      <!-- Reception -->
+      <div class="overlay-section" style="background-image: url('reception.jpg');">
+        <div class="overlay-content">
+          <div class="overlay-text">Resort Balai Alexandra</div>
+          <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
+        </div>
+      </div>
+
+      <p class="footer">We can't wait to celebrate with you!</p>
+    </div>
   </div>
 
-  <!-- Countdown Script -->
+  <!-- ⏳ Countdown Script -->
+  <script src="countdown.js"></script>
+
+  <!-- 💖 Heart Click Logic -->
   <script>
-    const countDownDate = new Date("Dec 21, 2025 12:21:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
+    function openInvitation() {
+      const music = document.getElementById('bg-music');
+      music.play();
+      document.getElementById('envelope').classList.add('fade-out');
+      document.getElementById('invitation').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('envelope').style.display = 'none';
+      }, 1000);
+    }
   </script>
 
-  <!-- Glitter Script -->
+  <!-- ✨ Glitter Script -->
   <script>
     const glitterContainer = document.querySelector('.glitter-container');
     for (let i = 0; i < 80; i++) {
