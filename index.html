@@ -15,12 +15,12 @@
 </head>
 <body>
 
-  <!-- 💌 Envelope Intro -->
+  <!-- Envelope Intro -->
   <div id="envelope" class="envelope-screen">
     <div class="envelope-flap"></div>       <!-- ▼ top flap -->
     <div class="envelope-body"></div>       <!-- rectangle body -->
     
-    <!-- 🎨 Angled bottom flap lines -->
+    <!--  Angled bottom flap lines -->
     <div class="envelope-bottom-lines">
       <div class="left-line"></div>
       <div class="right-line"></div>
@@ -29,15 +29,15 @@
     <div class="heart-button" onclick="openInvitation()">❤️</div>
   </div>
 
-  <!-- 🎵 Background Music -->
+  <!--  Background Music -->
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- ✨ Glitter Effect -->
+  <!--  Glitter Effect -->
   <div class="glitter-container"></div>
 
-  <!-- 💍 Main Invitation (initially hidden) -->
+  <!--  Main Invitation (initially hidden) -->
   <div id="invitation" class="hidden">
 
     <!-- Save the Date -->
@@ -89,10 +89,10 @@
     </div>
   </div>
 
-  <!-- ⏳ Countdown Script -->
+  <!--  Countdown Script -->
   <script src="countdown.js"></script>
 
-  <!-- 💖 Heart Click Logic -->
+  <!--  Heart Click Logic -->
   <script>
     function openInvitation() {
       const music = document.getElementById('bg-music');
@@ -105,7 +105,7 @@
     }
   </script>
 
-  <!-- ✨ Glitter Script -->
+  <!--  Glitter Script -->
   <script>
     const glitterContainer = document.querySelector('.glitter-container');
     for (let i = 0; i < 80; i++) {
