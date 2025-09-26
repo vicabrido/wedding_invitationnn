@@ -195,6 +195,7 @@ body {
     width: 100%;
     height: 350px; 
     object-fit: cover; 
+    /* Ito ang nagdidilim sa image para mas makita ang text */
     filter: brightness(85%); 
 }
 
@@ -209,6 +210,7 @@ body {
     width: calc(33.33% - 7px);
     height: 180px; 
     object-fit: cover; 
+    /* Ito ang nagdidilim sa image para mas makita ang text */
     filter: brightness(85%);
 }
 
@@ -352,6 +354,8 @@ body {
     margin-bottom: 3rem; 
     max-width: 700px; 
     margin: 0 auto 3rem auto;
+    /* FIX: Added background color to hide black padding */
+    background-color: var(--color-cream); 
 }
 
 .video-container iframe,
@@ -364,6 +368,8 @@ body {
     height: 100%;
     border-radius: 8px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* FIX: Ensure the video covers the entire space */
+    object-fit: cover; 
 }
 
 /*
@@ -416,9 +422,6 @@ body {
   }
   .photo-collage, .story-text-wrapper {
       width: 100%;
-  }
-  .photo-collage {
-      padding-bottom: 0.5rem;
   }
   .collage-main-img {
       height: 250px; 
