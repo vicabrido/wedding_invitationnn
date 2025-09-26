@@ -340,7 +340,7 @@ body {
 
 /*
 ======================================================
-  EMBEDDED VIDEO RESPONSIVE FIX (NEW)
+  EMBEDDED VIDEO RESPONSIVE FIX
 ======================================================
 */
 .video-container {
@@ -349,7 +349,7 @@ body {
     height: 0;
     overflow: hidden;
     margin-bottom: 3rem; 
-    max-width: 700px; /* Use inline style in HTML, but here for reference */
+    max-width: 700px; 
     margin: 0 auto 3rem auto;
 }
 
