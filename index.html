@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raymond & Haydee Jane's Wedding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style (1).css" />
   <style>
     @font-face {
       font-family: 'AmsterdamFour';
@@ -15,13 +15,8 @@
 </head>
 <body>
 
-  <!-- Envelope Intro -->
   <div id="envelope" class="envelope-screen">
-    <div class="envelope-flap"></div>       <!-- ▼ top flap -->
-    <div class="envelope-body"></div>       <!-- rectangle body -->
-    
-    <!--  Angled bottom flap lines -->
-    <div class="envelope-bottom-lines">
+    <div class="envelope-flap"></div>       <div class="envelope-body"></div>       <div class="envelope-bottom-lines">
       <div class="left-line"></div>
       <div class="right-line"></div>
     </div>
@@ -29,18 +24,14 @@
     <div class="heart-button" onclick="openInvitation()">❤️</div>
   </div>
 
-  <!--  Background Music -->
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!--  Glitter Effect -->
   <div class="glitter-container"></div>
 
-  <!--  Main Invitation (initially hidden) -->
   <div id="invitation" class="hidden">
 
-    <!-- Save the Date -->
     <div class="save-the-date-section">
       <div class="save-text-wrapper">
         <span class="save-date-word">Save</span>
@@ -49,50 +40,96 @@
       </div>
     </div>
 
-    <div class="invitation-container">
-
-      <!-- Corner Flowers -->
-      <img src="1.png" class="flower-decor flower-top-left" />
-      <img src="2.png" class="flower-decor flower-top-right" />
-      <img src="3.png" class="flower-decor flower-bottom-left" />
-      <img src="4.png" class="flower-decor flower-bottom-right" />
-
+    <section class="info-section cream-bg">
       <p class="wedding-of">The Wedding Of</p>
       <h1 class="main-heading">Raymond & Haydee Jane</h1>
       <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
-
-      <!-- Countdown -->
+      
       <div class="countdown">
-        <div><span id="days">00</span> Days</div>
-        <div><span id="hours">00</span> Hours</div>
-        <div><span id="minutes">00</span> Minutes</div>
-        <div><span id="seconds">00</span> Seconds</div>
+        <div><span id="days">00</span> DAYS</div>
+        <div><span id="hours">00</span> HOURS</div>
+        <div><span id="minutes">00</span> MINUTES</div>
+        <div><span id="seconds">00</span> SECONDS</div>
       </div>
-
-      <!-- Ceremony -->
-      <div class="overlay-section" style="background-image: url('church.jpg');">
-        <div class="overlay-content">
-          <div class="overlay-text">Saint Anthony Abbot Parish</div>
-          <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+    </section>
+    
+    <section class="image-text-section gold-bg">
+        <div class="photo-collage">
+            <img src="1.jpg" alt="Wedding Photo" class="collage-main-img" />
+            <div class="small-image-grid">
+                <img src="2.jpg" alt="Detail 1" class="small-img" />
+                <img src="3.jpg" alt="Detail 2" class="small-img" />
+                <img src="4.jpg" alt="Detail 3" class="small-img" />
+            </div>
         </div>
-      </div>
-
-      <!-- Reception -->
-      <div class="overlay-section" style="background-image: url('reception.jpg');">
-        <div class="overlay-content">
-          <div class="overlay-text">Resort Balai Alexandra</div>
-          <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
+        <div class="story-text-wrapper">
+            <h2 class="section-title">A CHANCE ENCOUNTER</h2>
+            <p>Write a paragraph that tells your story as a couple. You can talk about what drew you to your partner, your journey together, and what makes your relationship unique. This is your chance to share your personality and relationship, and to thank your guests for being part of your love story, and when the special day means to you.</p>
         </div>
+    </section>
+
+    <section class="info-section cream-bg">
+      <h2 class="section-title">THE DAY'S EVENTS</h2>
+      <div class="event-time-table">
+          <p><span>3:00 PM</span> VOWS AND I DO'S</p>
+          <p><span>4:00 PM</span> COCKTAIL HOUR</p>
+          <p><span>5:00 PM</span> DINNER AND DANCING</p>
+          <p><span>8:00 PM</span> THE SEND-OFF</p>
+      </div>
+    </section>
+    
+    <section class="info-section gold-bg">
+      <h2 class="section-title white-title">GUEST INFORMATION</h2>
+      <div class="guest-info-grid">
+          <div class="info-column dress-code">
+              <h3>DRESS CODE</h3>
+              <p>We kindly request a semi-formal dress code for our ceremony and reception. Please wear an evening gown or a suit, or a long-sleeved polo and trousers. We can't wait to see you looking fabulous!</p>
+          </div>
+          <div class="info-column registry">
+              <h3>WEDDING REGISTRY</h3>
+              <p>We treasure your presence the most. Should you wish to honor us with a gift, we have registered at:</p>
+              <p> **BLISSFULLY HOME LIFESTYLE CENTER**<br>www.reallygreatsite.com </p>
+              <p> **COZY HOMES INC.**<br>www.reallygreatsite.com </p>
+          </div>
+          <div class="info-column contact">
+              <h3>MOBILE-FREE CEREMONY</h3>
+              <p>To ensure everyone fully enjoys the moment, we kindly ask you to put away your phones and cameras during the ceremony. Thank you for your understanding.</p>
+          </div>
+      </div>
+    </section>
+    
+    <section class="info-section cream-bg">
+      <h2 class="section-title">Location Details</h2>
+      
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('church.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Saint Anthony Abbot Parish</div>
+              <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
       </div>
 
-      <p class="footer">We can't wait to celebrate with you!</p>
-    </div>
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('reception.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Resort Balai Alexandra</div>
+              <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="info-section cream-bg final-section">
+      <h2 class="section-title">WE CAN'T WAIT TO CELEBRATE WITH YOU</h2>
+      <img src="5.jpg" alt="Closing Photo" class="closing-photo" />
+      <p class="contact-line">For inquiries, please contact our Wedding Coordinator:</p>
+      <p class="footer-contact">**L. M. Co.** | (123) 456-7890 | email@reallygreatsite.com</p>
+    </section>
+
   </div>
 
-  <!--  Countdown Script -->
   <script src="countdown.js"></script>
-
-  <!--  Heart Click Logic -->
   <script>
     function openInvitation() {
       const music = document.getElementById('bg-music');
@@ -103,10 +140,7 @@
         document.getElementById('envelope').style.display = 'none';
       }, 1000);
     }
-  </script>
-
-  <!--  Glitter Script -->
-  <script>
+    // Glitter script remains the same
     const glitterContainer = document.querySelector('.glitter-container');
     for (let i = 0; i < 80; i++) {
       const g = document.createElement('div');
@@ -118,6 +152,5 @@
       glitterContainer.appendChild(g);
     }
   </script>
-
 </body>
 </html>
