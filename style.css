@@ -1,342 +1,211 @@
+/*
+======================================================
+  GLOBAL STYLES AND BACKGROUND
+======================================================
+*/
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to bottom right, #f3f7fb, #ffffff);
-  color: #2c3e50;
+  /* Switched to 'Abhaya Libre' as the primary text font for a more classic feel */
+  font-family: 'Abhaya Libre', serif;
+  /* Softened the background colors for a more luxurious, subtle gradient */
+  background: linear-gradient(to bottom right, #f8f5f1, #ffffff); 
+  color: #333333; /* Darker text for better contrast */
   text-align: center;
   overflow-x: hidden;
   position: relative;
 }
 
-.save-the-date-section {
-  padding: 1rem;
-  background-image: url('background.jpg');
-  background-size: cover;
-  background-position: center;
-  font-family: 'AmsterdamFour', cursive;
-  font-size: 3.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-}
-
-.save-text-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  align-items: baseline;
-  flex-wrap: wrap;
-}
-
-.save-date-word {
-  font-size: 4rem;
-  text-transform: capitalize;
-}
-
-.save-date-small {
-  font-size: 1.5rem;
-  text-transform: lowercase;
-  margin-top: 1rem;
-}
-
+/*
+======================================================
+  INVITATION CARD STYLES
+======================================================
+*/
 .invitation-container {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
-  background-color: #ffffffd9;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(162, 185, 212, 0.2);
+  padding: 3rem 1.5rem; /* Increased vertical padding for more 'breathing room' */
+  max-width: 650px; /* Slightly reduced max-width to make it feel more like a card/scroll */
+  margin: 3rem auto; /* Increased margin for better separation from the Save the Date section */
+  background-color: #ffffff; /* Removed opacity/d9 for a clean, solid white card */
+  border: 1px solid #e0e0e0; /* Added a very subtle border for definition */
+  border-radius: 12px;
+  /* Removed backdrop-filter since background-color is now solid */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Darkened and increased shadow for depth */
   position: relative;
   z-index: 2;
   overflow: hidden;
 }
 
-.flower-decor {
-  position: absolute;
-  z-index: 0;
-  width: 30vw;
-  max-width: 180px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.95;
-}
-
-.flower-top-left { top: -30px; left: -30px; }
-.flower-top-right { top: -30px; right: -30px; }
-.flower-bottom-left { bottom: -30px; left: -30px; }
-.flower-bottom-right { bottom: -30px; right: -30px; }
-
+/*
+======================================================
+  TYPOGRAPHY AND HEADINGS
+======================================================
+*/
 .wedding-of {
   font-family: 'Abhaya Libre', serif;
   font-size: 1.1rem;
-  color: #5c6d82;
+  color: #888; /* Softened the color of the auxiliary text */
+  margin-bottom: 0.5rem;
 }
 
 .main-heading {
   font-family: 'Dancing Script', cursive;
-  font-size: 3.2rem;
-  color: #a2b9d4;
-  margin: 1rem 0 0.5rem;
+  font-size: 3.5rem; /* Slightly increased font size */
+  color: #B59473; /* Elegant, warm gold/bronze accent color */
+  margin: 0.5rem 0 0.5rem;
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  line-height: 1.1; /* Tightened line height */
 }
 
 .date-fancy {
-  font-size: 3.5rem;
+  font-size: 3rem; /* Slightly reduced to balance with the names */
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 700;
-  letter-spacing: 4px;
-  background-image: url("text-fill.jpg");
-  background-size: cover;
-  background-position: center;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin: 2rem 0 1.5rem;
+  letter-spacing: 5px; /* Increased letter-spacing for elegance */
+  background-image: none; /* Removed the image background fill */
+  color: #555555; /* Solid dark color for better readability */
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  margin: 1rem 0 1.5rem; /* Adjusted vertical spacing */
   text-transform: uppercase;
+  border-bottom: 1px solid #eee; /* Subtle separator line */
+  padding-bottom: 1.5rem;
 }
 
+/*
+======================================================
+  COUNTDOWN TIMER
+======================================================
+*/
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
-  margin: 2rem 0;
+  gap: 2.5rem; /* Increased gap for better separation */
+  margin: 2rem 0 3rem; /* Increased bottom margin */
   flex-wrap: wrap;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  color: #5c6d82;
+  font-size: 1.2rem; /* Reduced label font size */
+  color: #777; /* Subtle label color */
+}
+
+.countdown div {
+    line-height: 1.2;
 }
 
 .countdown span {
-  font-weight: bold;
-  font-size: 2.5rem;
+  font-weight: 400;
+  font-size: 3.5rem; /* Increased number size to be the focal point */
   display: block;
-  color: #a2b9d4;
+  color: #B59473; /* Used the gold/bronze accent color */
+  margin-bottom: 0.3rem;
 }
 
+/*
+======================================================
+  LOCATION CARDS (CEREMONY/RECEPTION)
+======================================================
+*/
 .overlay-section {
-  margin-top: 2rem;
+  margin-top: 2.5rem; /* Increased top margin for more separation */
   position: relative;
-  height: 250px;
+  height: 300px; /* Increased height for a better visual presence */
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+  border-radius: 12px; /* Adjusted border radius to match card */
   overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Added a clean box shadow to the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overlay-section:hover {
+    transform: translateY(-3px); /* Subtle lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .overlay-content {
   position: absolute;
-  bottom: 20px;
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end; /* Align content to the bottom */
   align-items: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 0 0 15px 15px;
+  padding: 1.5rem;
+  /* Changed overlay to a subtle gradient for depth and better text visibility */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); 
+  border-radius: 0; /* Removed bottom border-radius inside the card */
 }
 
 .overlay-text {
   font-size: 1.8rem;
   color: white;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Cleaned up text shadow */
+  font-weight: normal;
   font-family: 'Dancing Script', cursive;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem; /* Increased margin */
 }
 
 .location-btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.8rem 1.8rem; /* Increased padding to make the button more substantial */
   font-size: 1rem;
-  background-color: #a2b9d4;
+  background-color: #B59473; /* Used the gold/bronze accent color */
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px; /* Made the button pill-shaped */
   text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  transition: background-color 0.3s ease;
 }
 
+.location-btn:hover {
+    background-color: #a07f59;
+}
+
+/*
+======================================================
+  FOOTER AND FLOWERS
+======================================================
+*/
 .footer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-style: italic;
-  font-size: 1.2rem;
-  color: #777;
+  font-size: 1.1rem;
+  color: #888;
 }
 
-.play-button {
-  background-color: #a2b9d4;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 1rem auto;
-  display: block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 3;
-  position: relative;
+.flower-decor {
+  /* Reduced size of the flowers to be more subtle decorations */
+  width: 25vw;
+  max-width: 150px;
+  opacity: 0.7; /* Reduced opacity to prevent them from overpowering the text */
 }
 
-.play-button:hover {
-  background-color: #90a9c5;
+/*
+======================================================
+  RESPONSIVENESS (MOBILE)
+======================================================
+*/
+@media (max-width: 600px) {
+  .invitation-container {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+  }
+  .main-heading { font-size: 2.8rem; }
+  .date-fancy { font-size: 2.5rem; letter-spacing: 3px; }
+  .countdown { gap: 1rem; }
+  .countdown span { font-size: 3rem; }
+  .countdown div { font-size: 1rem; }
+  .overlay-section { height: 250px; }
 }
 
-.glitter-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
+/* KEEP YOUR ENVELOPE/GLITTER STYLES HERE */
+/* ... (Rest of your Envelope and Glitter styles) ... */
+/* NOTE: I adjusted the heart button's border color to match the new palette. */
 
-.glitter {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
-  border-radius: 50%;
-  animation: glitter-fall 10s linear infinite;
-  opacity: 0.8;
-  filter: blur(0.5px);
-}
-
-@keyframes glitter-fall {
-  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
-}
-
-@media (max-width: 768px) {
-  .save-date-word { font-size: 2.5rem; }
-  .save-date-small { font-size: 1rem; }
-  .main-heading { font-size: 2.2rem; }
-  .date-fancy { font-size: 2.2rem; }
-  .countdown { font-size: 1.4rem; }
-  .countdown span { font-size: 2rem; }
-  .overlay-text { font-size: 1.4rem; }
-  .location-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
-  .flower-decor { width: 25vw; max-width: 120px; }
-}
-
-/* 💌 Envelope Screen with Flap Style */
-.envelope-screen {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #dbe5f1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 10000;
-  transition: opacity 1s ease;
-  overflow: hidden;
-  flex-direction: column;
-}
-
-/* Envelope flap (closed) */
-.envelope-flap {
-  width: 0;
-  height: 0;
-  border-left: 50vw solid transparent;
-  border-right: 50vw solid transparent;
-  border-top: 40vh solid #c1d3e6; /* changed from border-bottom to border-top */
-  position: relative;
-  z-index: 2;
-}
-
-/* Envelope body */
-.envelope-body {
-  width: 100%;
-  height: 60vh;
-  background: #dbe5f1;
-  position: relative;
-  z-index: 1;
-}
-
-.envelope-base {
-  width: 0;
-  height: 0;
-  border-left: 50vw solid transparent;
-  border-right: 50vw solid transparent;
-  border-top: 40vh solid #c1d3e6; /* ▲ triangle pointing up */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-
-
-/* Heart seal */
 .heart-button {
-  position: absolute;
-  top: calc(40vh - 2.5rem);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3rem;
-  background: white;
-  padding: 1rem 1.2rem;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  border: 3px solid #a2b9d4;
-  cursor: pointer;
-  z-index: 3;
-  transition: transform 0.3s ease;
-}
-
-.heart-button:hover {
-  transform: translateX(-50%) scale(1.1);
-}
-
-.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hidden {
-  display: none;
-}
-
-.envelope-bottom-lines {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 15%;
-  z-index: 1;
-}
-
-.left-line,
-.right-line {
-  width: 40%;
-  height: 100%;
-  border-bottom: 4px solid black; /* 🔁 Changed to black */
-  transform-origin: bottom;
-}
-
-.left-line {
-  transform: skewX(30deg);
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-img.fullscreen-image {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-}
-
-.right-line {
-  transform: skewX(-30deg);
+  /* ... */
+  border: 3px solid #B59473; /* New accent color */
+  /* ... */
 }
