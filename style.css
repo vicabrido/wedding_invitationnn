@@ -23,8 +23,9 @@ body {
 
 /* Base style for full-width sections */
 .info-section {
+    /* Use 100% width, centered content, and large padding for the scrolling block effect */
     padding: 3rem 1rem;
-    max-width: 1200px;
+    max-width: 100%; /* Important: Must be 100% for full-width colors */
     margin: 0 auto;
 }
 
@@ -171,6 +172,9 @@ body {
 ======================================================
 */
 .image-text-section {
+    /* Use margin: 0; padding: 0; to ensure full screen width */
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
@@ -179,6 +183,7 @@ body {
 }
 
 .photo-collage {
+    /* This column takes up the left 55% of the screen */
     width: 55%;
     background-color: var(--color-dark-brown);
     position: relative;
@@ -191,8 +196,8 @@ body {
 .collage-main-img {
     grid-column: 1 / 3;
     width: 100%;
-    height: 350px; /* Fixed height for image consistency */
-    object-fit: cover; /* **CRUCIAL: Scales and crops image to fit** */
+    height: 350px; 
+    object-fit: cover; 
     filter: brightness(85%); 
 }
 
@@ -205,12 +210,13 @@ body {
 
 .small-img {
     width: calc(33.33% - 7px);
-    height: 180px; /* Fixed height for image consistency */
-    object-fit: cover; /* **CRUCIAL: Scales and crops image to fit** */
+    height: 180px; 
+    object-fit: cover; 
     filter: brightness(85%);
 }
 
 .story-text-wrapper {
+    /* This column takes up the right 45% of the screen */
     width: 45%;
     padding: 3rem;
     text-align: left;
@@ -276,7 +282,7 @@ body {
 
 /*
 ======================================================
-  LOCATION MAPS (Page 5)
+  LOCATION MAPS 
 ======================================================
 */
 .location-card {
@@ -337,7 +343,7 @@ body {
 
 /*
 ======================================================
-  CLOSING SECTION (Page 6)
+  CLOSING SECTION 
 ======================================================
 */
 .final-section {
@@ -390,10 +396,10 @@ body {
       padding-bottom: 0.5rem;
   }
   .collage-main-img {
-      height: 250px; /* Adjusted for mobile */
+      height: 250px; 
   }
   .small-img {
-      height: 120px; /* Adjusted for mobile */
+      height: 120px; 
   }
   .story-text-wrapper {
       padding: 2rem 1rem;
@@ -512,4 +518,39 @@ body {
 
 .right-line {
   transform: skewX(-30deg);
+}
+
+/* Remove old single-card container styling that breaks the new layout */
+.invitation-container {
+  display: contents; /* Makes the content render as if the container doesn't exist */
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Glitter styles remain the same */
+.glitter-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.glitter {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
+  border-radius: 50%;
+  animation: glitter-fall 10s linear infinite;
+  opacity: 0.8;
+  filter: blur(0.5px);
+}
+
+@keyframes glitter-fall {
+  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
 }
