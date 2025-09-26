@@ -14,7 +14,7 @@
 body {
   margin: 0;
   font-family: 'Abhaya Libre', serif;
-  background-color: var(--color-cream); /* Use the cream color as the base */
+  background-color: var(--color-cream);
   color: var(--color-text);
   text-align: center;
   overflow-x: hidden;
@@ -167,20 +167,19 @@ body {
 
 /*
 ======================================================
-  IMAGE AND STORY SECTION (Page 1 & 2)
+  IMAGE AND STORY SECTION (Collage Styling)
 ======================================================
 */
 .image-text-section {
     display: flex;
-    flex-wrap: nowrap; /* Prevent stacking on desktop */
+    flex-wrap: nowrap;
     align-items: stretch;
-    min-height: 600px; /* Ensure a decent height */
+    min-height: 600px;
     width: 100%;
 }
 
 .photo-collage {
-    /* This makes the photos take up 55% of the width on desktop */
-    width: 55%; 
+    width: 55%;
     background-color: var(--color-dark-brown);
     position: relative;
     padding: 1.5rem;
@@ -190,10 +189,10 @@ body {
 }
 
 .collage-main-img {
-    grid-column: 1 / 3; /* Forces this image to span both columns */
+    grid-column: 1 / 3;
     width: 100%;
-    height: 350px; /* FIXED HEIGHT: Helps control photo size */
-    object-fit: cover; /* CROPS the image to fill the space */
+    height: 350px; /* Fixed height for image consistency */
+    object-fit: cover; /* **CRUCIAL: Scales and crops image to fit** */
     filter: brightness(85%); 
 }
 
@@ -206,8 +205,8 @@ body {
 
 .small-img {
     width: calc(33.33% - 7px);
-    height: 180px; /* FIXED HEIGHT: Helps control photo size */
-    object-fit: cover; /* CROPS the image to fill the space */
+    height: 180px; /* Fixed height for image consistency */
+    object-fit: cover; /* **CRUCIAL: Scales and crops image to fit** */
     filter: brightness(85%);
 }
 
@@ -430,7 +429,7 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-dark-brown); /* Dark background to match theme */
+  background: var(--color-dark-brown); 
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -468,7 +467,7 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-gold-accent); /* Gold Accent */
+  border: 3px solid var(--color-gold-accent); 
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s ease;
@@ -513,34 +512,4 @@ body {
 
 .right-line {
   transform: skewX(-30deg);
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-/* Glitter styles remain the same */
-.glitter-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.glitter {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
-  border-radius: 50%;
-  animation: glitter-fall 10s linear infinite;
-  opacity: 0.8;
-  filter: blur(0.5px);
-}
-
-@keyframes glitter-fall {
-  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
 }
