@@ -23,9 +23,8 @@ body {
 
 /* Base style for full-width sections */
 .info-section {
-    /* Use 100% width, centered content, and large padding for the scrolling block effect */
     padding: 3rem 1rem;
-    max-width: 100%; /* Important: Must be 100% for full-width colors */
+    max-width: 100%; 
     margin: 0 auto;
 }
 
@@ -172,7 +171,6 @@ body {
 ======================================================
 */
 .image-text-section {
-    /* Use margin: 0; padding: 0; to ensure full screen width */
     margin: 0;
     padding: 0;
     display: flex;
@@ -183,7 +181,8 @@ body {
 }
 
 .photo-collage {
-    /* This column takes up the left 55% of the screen */
+    /* Set max width to prevent it from getting too large on very wide screens */
+    max-width: 900px; 
     width: 55%;
     background-color: var(--color-dark-brown);
     position: relative;
@@ -216,7 +215,6 @@ body {
 }
 
 .story-text-wrapper {
-    /* This column takes up the right 45% of the screen */
     width: 45%;
     padding: 3rem;
     text-align: left;
@@ -227,7 +225,7 @@ body {
 
 /*
 ======================================================
-  EVENTS FLOW (Page 4)
+  EVENTS FLOW 
 ======================================================
 */
 .event-time-table {
@@ -256,7 +254,7 @@ body {
 
 /*
 ======================================================
-  GUEST INFO GRID (Page 5)
+  GUEST INFO GRID 
 ======================================================
 */
 .guest-info-grid {
@@ -520,17 +518,10 @@ body {
   transform: skewX(-30deg);
 }
 
-/* Remove old single-card container styling that breaks the new layout */
-.invitation-container {
-  display: contents; /* Makes the content render as if the container doesn't exist */
-  padding: 0 !important;
-  margin: 0 !important;
-  max-width: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
+/* *** DELETED OLD .invitation-container STYLES HERE TO RESOLVE THE CONFLICT ***
+*/
 
-/* Glitter styles remain the same */
+/* Glitter styles */
 .glitter-container {
   position: fixed;
   top: 0; left: 0;
