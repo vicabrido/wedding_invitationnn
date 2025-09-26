@@ -1,39 +1,61 @@
 /*
 ======================================================
-  GLOBAL STYLES AND BACKGROUND
+  GLOBAL COLORS AND FONTS
 ======================================================
 */
+:root {
+  --color-dark-brown: #3e2723; /* Dark Brown/Gold Base (Background/Block Color) */
+  --color-gold-accent: #b59473; /* Elegant Gold Accent */
+  --color-cream: #f4f0e6; /* Light Cream Background Block Color */
+  --color-text: #2c3e50; /* Dark Text */
+  --color-light-text: #5c6d82; /* Muted Text */
+}
+
 body {
   margin: 0;
   font-family: 'Abhaya Libre', serif;
-  background: linear-gradient(to bottom right, #f8f5f1, #ffffff); 
-  color: #333333; 
+  background-color: var(--color-cream); /* Use the cream color as the base */
+  color: var(--color-text);
   text-align: center;
   overflow-x: hidden;
   position: relative;
 }
 
-/*
-======================================================
-  SAVE THE DATE SECTION
-======================================================
-*/
+/* Base style for full-width sections */
+.info-section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cream-bg {
+    background-color: var(--color-cream);
+    color: var(--color-text);
+}
+
+.gold-bg {
+    background-color: var(--color-dark-brown);
+    color: white; 
+}
+
+
 /*
 ======================================================
   SAVE THE DATE SECTION
 ======================================================
 */
 .save-the-date-section {
-  padding: 8rem 1rem; /* Increased padding for more vertical space, making the image more prominent */
+  padding: 8rem 1rem; 
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
-  /* Added a subtle overlay for better text contrast and a richer image appearance */
-  position: relative; /* Needed for the pseudo-element overlay */
-  z-index: 0; /* Ensures content is above overlay */
+  font-family: 'AmsterdamFour', cursive;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 0;
 }
 
-/* Pseudo-element for the dark overlay */
 .save-the-date-section::before {
   content: '';
   position: absolute;
@@ -41,9 +63,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Dark, subtle overlay (20% opacity black) */
-  backdrop-filter: blur(1px); /* Optional: Adds a very slight blur for depth */
-  z-index: -1; /* Puts the overlay behind the text but above the background image */
+  background-color: rgba(0, 0, 0, 0.25); 
+  z-index: -1; 
 }
 
 .save-text-wrapper {
@@ -52,62 +73,20 @@ body {
   gap: 0.5rem;
   align-items: baseline;
   flex-wrap: wrap;
-  position: relative; /* Ensures text is above the overlay */
+  position: relative; 
   z-index: 1;
 }
 
 .save-date-word {
   font-size: 4rem;
   text-transform: capitalize;
-  color: #fff; /* Ensure text is white for contrast */
 }
 
 .save-date-small {
   font-size: 1.5rem;
   text-transform: lowercase;
   margin-top: 1rem;
-  color: #fff; /* Ensure text is white for contrast */
 }
-
-@media (max-width: 768px) {
-  .save-the-date-section {
-    padding: 6rem 1rem; /* Adjusted padding for smaller screens */
-  }
-  .save-date-word { font-size: 2.5rem; }
-  .save-date-small { font-size: 1rem; }
-}
-/*
-======================================================
-  INVITATION CARD STYLES
-======================================================
-*/
-.invitation-container {
-  padding: 3rem 1.5rem; 
-  max-width: 650px; 
-  margin: 3rem auto; 
-  background-color: #ffffff; 
-  border: 1px solid #e0e0e0; 
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.flower-decor {
-  position: absolute;
-  z-index: 0;
-  /* Reduced size and opacity for subtlety */
-  width: 25vw;
-  max-width: 150px;
-  pointer-events: none;
-  opacity: 0.7; 
-}
-
-.flower-top-left { top: -30px; left: -30px; }
-.flower-top-right { top: -30px; right: -30px; }
-.flower-bottom-left { bottom: -30px; left: -30px; }
-.flower-bottom-right { bottom: -30px; right: -30px; }
 
 /*
 ======================================================
@@ -117,23 +96,16 @@ body {
 .wedding-of {
   font-family: 'Abhaya Libre', serif;
   font-size: 1.1rem;
-  color: #888; 
+  color: var(--color-light-text); 
   margin-bottom: 0.5rem;
 }
 
 .main-heading {
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem; 
-  color: #B59473; /* Gold/Bronze Accent */
+  color: var(--color-gold-accent); 
   margin: 0.5rem 0 0.5rem;
-  animation: fadeUp 1.5s ease forwards;
-  opacity: 0;
   line-height: 1.1; 
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .date-fancy {
@@ -141,12 +113,28 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 700;
   letter-spacing: 5px; 
-  color: #555555; 
+  color: var(--color-text); 
   margin: 1rem 0 1.5rem; 
   text-transform: uppercase;
-  border-bottom: 1px solid #eee; 
+  border-bottom: 1px solid #ddd; 
   padding-bottom: 1.5rem;
+  display: inline-block;
+  max-width: 400px;
 }
+
+.section-title {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.gold-bg .section-title, .white-title {
+    color: white; 
+}
+
 
 /*
 ======================================================
@@ -157,11 +145,11 @@ body {
   display: flex;
   justify-content: center;
   gap: 2.5rem; 
-  margin: 2rem 0 3rem; 
+  margin: 2rem 0; 
   flex-wrap: wrap;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem; 
-  color: #777; 
+  color: var(--color-light-text); 
 }
 
 .countdown div {
@@ -172,30 +160,139 @@ body {
   font-weight: 400;
   font-size: 3.5rem; 
   display: block;
-  color: #B59473; /* Gold/Bronze Accent */
+  color: var(--color-gold-accent); 
   margin-bottom: 0.3rem;
+}
+
+
+/*
+======================================================
+  IMAGE AND STORY SECTION (Page 1 & 2)
+======================================================
+*/
+.image-text-section {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent stacking on desktop */
+    align-items: stretch;
+    min-height: 600px; /* Ensure a decent height */
+    width: 100%;
+}
+
+.photo-collage {
+    width: 55%;
+    background-color: var(--color-dark-brown);
+    position: relative;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.collage-main-img {
+    grid-column: 1 / 3;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(85%); /* Subtle dark filter */
+}
+
+.small-image-grid {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.small-img {
+    width: calc(33.33% - 7px);
+    height: 150px;
+    object-fit: cover;
+    filter: brightness(85%);
+}
+
+.story-text-wrapper {
+    width: 45%;
+    padding: 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /*
 ======================================================
-  LOCATION CARDS (CEREMONY/RECEPTION)
+  EVENTS FLOW (Page 4)
 ======================================================
 */
+.event-time-table {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-light-text);
+}
+
+.event-time-table p {
+    margin: 1.2rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-time-table span {
+    font-weight: bold;
+    color: var(--color-gold-accent);
+    display: inline-block;
+    width: 100px; /* Aligns the times */
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+/*
+======================================================
+  GUEST INFO GRID (Page 5)
+======================================================
+*/
+.guest-info-grid {
+    display: flex;
+    gap: 2rem;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+.info-column {
+    flex: 1;
+}
+
+.gold-bg h3 {
+    color: var(--color-gold-accent);
+    font-size: 1.3rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+/*
+======================================================
+  LOCATION MAPS (Page 5)
+======================================================
+*/
+.location-card {
+    max-width: 500px;
+    margin: 1.5rem auto;
+}
+
 .overlay-section {
-  margin-top: 2.5rem; 
+  margin-top: 0; 
   position: relative;
   height: 300px; 
   background-size: cover;
   background-position: center;
   border-radius: 12px; 
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.overlay-section:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
 }
 
 .overlay-content {
@@ -209,8 +306,7 @@ body {
   justify-content: flex-end; 
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); 
-  border-radius: 0; 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%); 
 }
 
 .overlay-text {
@@ -225,7 +321,7 @@ body {
 .location-btn {
   padding: 0.8rem 1.8rem; 
   font-size: 1rem;
-  background-color: #B59473; /* Gold/Bronze Accent */
+  background-color: var(--color-gold-accent); 
   color: white;
   border: none;
   border-radius: 50px; 
@@ -241,80 +337,94 @@ body {
 
 /*
 ======================================================
-  FOOTER AND UTILITY
+  CLOSING SECTION (Page 6)
 ======================================================
 */
-.footer {
-  margin-top: 3rem;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #888;
+.final-section {
+    padding-bottom: 5rem;
 }
-
-.play-button {
-  background-color: #B59473; /* Gold/Bronze Accent */
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 1rem auto;
-  display: block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 3;
-  position: relative;
+.closing-photo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-
-.play-button:hover {
-  background-color: #a07f59;
+.contact-line {
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--color-light-text);
 }
-
-.glitter-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.glitter {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
-  border-radius: 50%;
-  animation: glitter-fall 10s linear infinite;
-  opacity: 0.8;
-  filter: blur(0.5px);
-}
-
-@keyframes glitter-fall {
-  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
+.footer-contact {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    color: var(--color-text);
 }
 
 /*
 ======================================================
-  RESPONSIVENESS (MOBILE)
+  FOOTER AND UTILITY
+======================================================
+*/
+.footer {
+  /* Removed, replaced by final section */
+  display: none;
+}
+
+/* Glitter styles remain the same */
+
+/*
+======================================================
+  RESPONSIVENESS (MOBILE VIEW)
 ======================================================
 */
 @media (max-width: 768px) {
-  .save-date-word { font-size: 2.5rem; }
-  .save-date-small { font-size: 1rem; }
+  .save-the-date-section { padding: 6rem 1rem; }
+  .save-date-word { font-size: 2.8rem; }
+  .save-date-small { font-size: 1.2rem; }
   .main-heading { font-size: 2.8rem; }
   .date-fancy { font-size: 2.5rem; letter-spacing: 3px; }
   .countdown { gap: 1rem; }
   .countdown span { font-size: 3rem; }
   .countdown div { font-size: 1rem; }
-  .overlay-text { font-size: 1.4rem; }
-  .location-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
-  .flower-decor { width: 25vw; max-width: 120px; }
+  
+  /* Image/Story Section stacks on mobile */
+  .image-text-section {
+      flex-direction: column;
+  }
+  .photo-collage, .story-text-wrapper {
+      width: 100%;
+  }
+  .story-text-wrapper {
+      padding: 2rem 1rem;
+      text-align: center;
+  }
+
+  /* Guest Info columns stack on mobile */
+  .guest-info-grid {
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+  .info-column {
+      text-align: center;
+  }
+  .info-column h3 {
+      border-bottom: 1px solid var(--color-gold-accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+  }
+  .event-time-table {
+      font-size: 1.1rem;
+  }
 }
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES
+  ENVELOPE SCREEN STYLES (MATCHING THEME)
 ======================================================
 */
 .envelope-screen {
@@ -322,7 +432,7 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: #dbe5f1;
+  background: var(--color-dark-brown); /* Dark background to match theme */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -332,40 +442,25 @@ body {
   flex-direction: column;
 }
 
-/* Envelope flap (closed) */
+/* Envelope parts now dark to match theme */
 .envelope-flap {
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid #c1d3e6; 
+  border-top: 40vh solid #2e1c18; /* Darker flap */
   position: relative;
   z-index: 2;
 }
 
-/* Envelope body */
 .envelope-body {
   width: 100%;
   height: 60vh;
-  background: #dbe5f1;
+  background: #2e1c18; /* Darker body */
   position: relative;
   z-index: 1;
 }
 
-.envelope-base {
-  width: 0;
-  height: 0;
-  border-left: 50vw solid transparent;
-  border-right: 50vw solid transparent;
-  border-top: 40vh solid #c1d3e6; 
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-
-
-/* Heart seal */
 .heart-button {
   position: absolute;
   top: calc(40vh - 2.5rem);
@@ -375,8 +470,8 @@ body {
   background: white;
   padding: 1rem 1.2rem;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  border: 3px solid #B59473; /* New Accent Color */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border: 3px solid var(--color-gold-accent); /* Gold Accent */
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s ease;
@@ -411,7 +506,7 @@ body {
 .right-line {
   width: 40%;
   height: 100%;
-  border-bottom: 4px solid black; 
+  border-bottom: 4px solid white; 
   transform-origin: bottom;
 }
 
@@ -419,19 +514,12 @@ body {
   transform: skewX(30deg);
 }
 
+.right-line {
+  transform: skewX(-30deg);
+}
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-}
-
-img.fullscreen-image {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-}
-
-.right-line {
-  transform: skewX(-30deg);
 }
