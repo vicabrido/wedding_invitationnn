@@ -181,8 +181,6 @@ body {
 }
 
 .photo-collage {
-    /* Set max width to prevent it from getting too large on very wide screens */
-    max-width: 900px; 
     width: 55%;
     background-color: var(--color-dark-brown);
     position: relative;
@@ -518,10 +516,23 @@ body {
   transform: skewX(-30deg);
 }
 
-/* *** DELETED OLD .invitation-container STYLES HERE TO RESOLVE THE CONFLICT ***
-*/
+/* CRUCIAL FIX: Remove the old container styling completely */
+.invitation-container {
+  display: contents; 
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 
-/* Glitter styles */
+/* Remove ALL old image and placeholder styles */
+.flower-decor, .flower-top-left, .flower-top-right, .flower-bottom-left, .flower-bottom-right {
+    display: none !important; 
+}
+
+
+/* Glitter styles remain the same */
 .glitter-container {
   position: fixed;
   top: 0; left: 0;
