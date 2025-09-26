@@ -129,7 +129,17 @@
         <p style="margin-bottom: 2rem;">Watch our full trailer below!</p>
 
         <div class="video-container" style="max-width: 700px; margin: 0 auto;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe 
+                id="youtube-player" 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33&enablejsapi=1&modestbranding=1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
     <section class="info-section cream-bg final-section">
@@ -141,17 +151,54 @@
 
   </div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script src="countdown.js"></script>
+  
   <script>
+    const bgMusic = document.getElementById('bg-music');
+    let player; // This will hold the YouTube player object
+
+    // 1. Function called when the envelope is opened
     function openInvitation() {
-      const music = document.getElementById('bg-music');
-      music.play();
+      // We only play the music if the player object hasn't been created yet (first load)
+      // OR if the player is currently paused (state 2) or ended (state 0).
+      if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
+          bgMusic.play();
+      }
+      
       document.getElementById('envelope').classList.add('fade-out');
       document.getElementById('invitation').classList.remove('hidden');
       setTimeout(() => {
         document.getElementById('envelope').style.display = 'none';
       }, 1000);
     }
+
+    // 2. Function called automatically by the YouTube API once it's ready
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    // 3. Function to handle music control based on player state
+    function onPlayerStateChange(event) {
+      // event.data == 1 (Playing)
+      if (event.data === YT.PlayerState.PLAYING) {
+        // VIDEO STARTED: Pause background music
+        bgMusic.pause();
+      } 
+      // event.data == 0 (Ended) or 2 (Paused)
+      else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+        // VIDEO STOPPED/PAUSED: Resume background music
+        if (!document.getElementById('invitation').classList.contains('hidden')) {
+             bgMusic.play();
+        }
+      }
+    }
+
     // Glitter script remains the same
     const glitterContainer = document.querySelector('.glitter-container');
     for (let i = 0; i < 80; i++) {
