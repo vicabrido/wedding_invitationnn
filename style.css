@@ -342,19 +342,20 @@ body {
 
 /*
 ======================================================
-  EMBEDDED VIDEO RESPONSIVE FIX (CRUCIAL!)
+  EMBEDDED VIDEO RESPONSIVE FIX (LANDSCAPE 16:9 STANDARD)
 ======================================================
 */
 .video-container {
     position: relative;
-    /* This creates the 16:9 aspect ratio and is the key to removing black bars */
+    /* ITO ANG STANDARD 16:9 ASPECT RATIO (56.25%) */
     padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     margin-bottom: 3rem; 
-    max-width: 700px; 
+    /* PINALAKIHANG MAX-WIDTH PARA MAS MALAPAD ANG VIDEO (Maximum 900px) */
+    max-width: 900px; 
     margin: 0 auto 3rem auto;
-    /* FIX: Added background color to hide black padding */
+    /* Background color para itago ang black padding sa gilid (kung meron) */
     background-color: var(--color-cream); 
 }
 
@@ -368,10 +369,16 @@ body {
     height: 100%;
     border-radius: 8px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* FIX: Ensure the video covers the entire space */
     object-fit: cover; 
 }
 
+/* ADJUSTMENT FOR MOBILE */
+@media (max-width: 768px) {
+    /* Sa mobile, mas maganda kung 16:9 pa rin, kaya ibalik natin sa 56.25% */
+    .video-container {
+        padding-bottom: 56.25%; 
+    }
+}
 /*
 ======================================================
   CLOSING SECTION 
