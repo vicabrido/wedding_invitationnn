@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raymond & Haydee Jane's Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" /> 
+  <link rel="stylesheet" href="style (1).css" /> 
   <style>
     /* Custom font for Save the Date */
     @font-face {
@@ -59,11 +59,11 @@
     
     <section class="image-text-section gold-bg">
         <div class="photo-collage">
-            <img src="1.jpg" alt="Couple on steps" class="collage-main-img" />
+            <img src="CGC02997.jpg" alt="Couple on steps" class="collage-main-img" />
             <div class="small-image-grid">
-                <img src="2.jpg" alt="Couple hugging" class="small-img" />
-                <img src="3.jpg" alt="Couple leaning in" class="small-img" />
-                <img src="4.jpg" alt="Couple close up" class="small-img" />
+                <img src="CGC03042.jpg" alt="Couple hugging" class="small-img" />
+                <img src="CGC02978.jpg" alt="Couple leaning in" class="small-img" />
+                <img src="CGC03056.jpg" alt="Couple close up" class="small-img" />
             </div>
         </div>
         <div class="story-text-wrapper">
@@ -129,29 +129,71 @@
         <p style="margin-bottom: 2rem;">Watch our full trailer below!</p>
 
         <div class="video-container" style="max-width: 700px; margin: 0 auto;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe 
+                id="youtube-player" 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33&amp;enablejsapi=1&amp;modestbranding=1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
     <section class="info-section cream-bg final-section">
       <h2 class="section-title">WE CAN'T WAIT TO CELEBRATE WITH YOU</h2>
-      <img src="5.jpg" alt="Closing Photo" class="closing-photo" /> 
+      <img src="CGC02921.jpg" alt="Closing Photo" class="closing-photo" /> 
       <p class="contact-line">For inquiries, please contact our Wedding Coordinator:</p>
       <p class="footer-contact">**L. M. Co.** | (123) 456-7890 | email@reallygreatsite.com</p>
     </section>
 
   </div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script src="countdown.js"></script>
+  
   <script>
+    const bgMusic = document.getElementById('bg-music');
+    let player; // This will hold the YouTube player object
+
+    // 1. Function called when the envelope is opened
     function openInvitation() {
-      const music = document.getElementById('bg-music');
-      music.play();
+      // Plays music.mp3 when the heart is clicked
+      bgMusic.play();
       document.getElementById('envelope').classList.add('fade-out');
       document.getElementById('invitation').classList.remove('hidden');
       setTimeout(() => {
         document.getElementById('envelope').style.display = 'none';
       }, 1000);
     }
+
+    // 2. Function called automatically by the YouTube API once it's ready
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    // 3. Function to handle music control based on player state
+    function onPlayerStateChange(event) {
+      // event.data == 1 (Playing)
+      if (event.data === YT.PlayerState.PLAYING) {
+        bgMusic.pause();
+      } 
+      // event.data == 0 (Ended) or 2 (Paused)
+      else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+        // Only resume if the whole invitation is visible
+        if (!document.getElementById('invitation').classList.contains('hidden')) {
+             bgMusic.play();
+        }
+      }
+    }
+
     // Glitter script remains the same
     const glitterContainer = document.querySelector('.glitter-container');
     for (let i = 0; i < 80; i++) {
