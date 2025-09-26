@@ -340,16 +340,17 @@ body {
 
 /*
 ======================================================
-  EMBEDDED VIDEO RESPONSIVE FIX (NEW)
+  EMBEDDED VIDEO RESPONSIVE FIX (CRUCIAL!)
 ======================================================
 */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* Maintains 16:9 Aspect Ratio (Standard video size) */
+    /* This creates the 16:9 aspect ratio and is the key to removing black bars */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     margin-bottom: 3rem; 
-    max-width: 700px; /* Use inline style in HTML, but here for reference */
+    max-width: 700px; 
     margin: 0 auto 3rem auto;
 }
 
@@ -549,7 +550,7 @@ body {
   transform: skewX(-30deg);
 }
 
-/* CRUCIAL FIX: Remove the old container styling completely */
+/* Remove the old container and decor styling */
 .invitation-container {
   display: contents; 
   padding: 0 !important;
@@ -559,13 +560,12 @@ body {
   box-shadow: none !important;
 }
 
-/* Remove ALL old image and placeholder styles */
 .flower-decor, .flower-top-left, .flower-top-right, .flower-bottom-left, .flower-bottom-right {
     display: none !important; 
 }
 
 
-/* Glitter styles remain the same */
+/* Glitter styles remains the same */
 .glitter-container {
   position: fixed;
   top: 0; left: 0;
