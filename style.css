@@ -480,41 +480,37 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  /* Darker shade of blue for the full screen background */
-  background: #4a6681; /* DARKER BLUE COLOR */
+  /* Gumamit ng Dark Blue background para sa buong screen */
+  background: var(--color-darker-envelope, #4a6681); 
   display: flex;
   justify-content: center;
   align-items: flex-start;
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
-  /* Ginawa kong column para ma-ayos ang positioning ng flap at body */
   flex-direction: column; 
 }
 
 .envelope-flap {
-  /* Flap (Top Triangle) */
+  /* Flap (Top Triangle) - Dark Blue */
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  /* Ang kulay ng flap ay Dark Blue */
-  border-top: 40vh solid #4a6681; 
-  /* Kukunin ang posisyon base sa envelope-screen */
+  border-top: 40vh solid var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  top: 0; /* Simula sa pinakatuktok */
-  z-index: 3; /* Dapat nasa ibabaw ng lahat maliban sa button */
+  top: 0; /* Tiyak na nasa tuktok */
+  z-index: 3; 
 }
 
 .envelope-body {
   /* Body (Bottom Half) - Dark Blue */
   width: 100%;
   height: 60vh;
-  background: #4a6681; 
-  /* Kukunin ang posisyon base sa envelope-screen */
+  background: var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  bottom: 0; /* Simula sa pinakababa */
-  z-index: 1;
+  bottom: 0; /* Tiyak na nasa ibaba */
+  z-index: 1; /* Nasa pinakailalim */
 }
 
 .heart-button {
@@ -530,7 +526,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   border: 3px solid var(--color-silver-accent);
   cursor: pointer;
-  z-index: 4; /* Dapat nasa pinaka-ibabaw para mapindot */
+  z-index: 4; 
   transition: transform 0.3s ease;
 }
 
@@ -543,17 +539,14 @@ body {
   pointer-events: none;
 }
 
-/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - FINAL CODE ** */
+/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - ITO ANG LOOB NG ENVELOPE ** */
 .envelope-bottom-lines {
   position: absolute;
-  /* Nagsisimula kung saan nagtatapos ang flap */
-  top: 40vh; 
+  top: 40vh; /* Nagsisimula kung saan nagtatapos ang flap */
   width: 100%;
-  /* Sinasakop ang buong height ng envelope body (60vh) */
-  height: 60vh; 
+  height: 60vh; /* Sinasakop ang buong body area */
   overflow: hidden;
-  /* Dapat nasa ibabaw ito ng blue body at nasa ilalim ng flap */
-  z-index: 2; 
+  z-index: 2; /* Nasa ibabaw ng envelope body (z-index 1) at ilalim ng flap (z-index 3) */
 }
 
 /* Ang dalawang Cream triangles na bumubuo sa V-shape */
@@ -568,13 +561,13 @@ body {
 
 .left-line {
   left: 0;
-  /* Clip path: (Gitna, Tuktok) -> (Kaliwa, Baba) -> (Kaliwa, Tuktok) */
+  /* Clip path: (Top-Center) -> (Bottom-Left) -> (Top-Left) */
   clip-path: polygon(100% 0, 0 100%, 0 0); 
 }
 
 .right-line {
   right: 0;
-  /* Clip path: (Gitna, Tuktok) -> (Kanan, Baba) -> (Kanan, Tuktok) */
+  /* Clip path: (Top-Center) -> (Bottom-Right) -> (Top-Right) */
   clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
