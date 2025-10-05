@@ -471,7 +471,6 @@ body {
 }
 
 /*
-/*
 ======================================================
   ENVELOPE SCREEN STYLES (FINAL & WORKING ENVELOPE)
 ======================================================
@@ -489,7 +488,7 @@ body {
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
-  flex-direction: column; 
+  /* Fixed: Ang display: flex lang ang kailangan para mag-occupy ng full screen */
 }
 
 .envelope-flap {
@@ -500,7 +499,7 @@ body {
   border-right: 50vw solid transparent;
   border-top: 40vh solid var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  top: 0; 
+  top: 0; /* Simula sa pinakatuktok */
   z-index: 3; 
 }
 
@@ -510,13 +509,13 @@ body {
   height: 60vh;
   background: var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  bottom: 0; 
+  bottom: 0; /* Simula sa pinakababa */
   z-index: 1; 
 }
 
 .heart-button {
   position: absolute;
-  /* Posisyon sa gitna ng pagitan ng flap (40vh) at body (60vh) */
+  /* Posisyon: 40vh (Flap height) minus half of the button size (2.5rem) */
   top: calc(40vh - 2.5rem); 
   left: 50%;
   transform: translateX(-50%);
