@@ -1,11 +1,11 @@
 /*
 ======================================================
-  GLOBAL COLORS AND FONTS
+  GLOBAL COLORS AND FONTS (UPDATED TO DUSTY BLUE THEME)
 ======================================================
 */
 :root {
-  --color-dark-brown: #3e2723; /* Dark Brown/Gold Base (Background/Block Color) */
-  --color-gold-accent: #b59473; /* Elegant Gold Accent */
+  --color-dark-blue: #5b7a97; /* Dusty Blue Base (Background/Block Color) */
+  --color-silver-accent: #a3aab6; /* Elegant Silver/Gray Accent */
   --color-cream: #f4f0e6; /* Light Cream Background Block Color */
   --color-text: #2c3e50; /* Dark Text */
   --color-light-text: #5c6d82; /* Muted Text */
@@ -33,8 +33,9 @@ body {
     color: var(--color-text);
 }
 
-.gold-bg {
-    background-color: var(--color-dark-brown);
+/* UPDATED: Changed from .gold-bg to .blue-bg */
+.blue-bg {
+    background-color: var(--color-dark-blue);
     color: white; 
 }
 
@@ -45,7 +46,7 @@ body {
 ======================================================
 */
 .save-the-date-section {
-  padding: 8rem 1rem; 
+  padding: 8rem 1rem 3rem 1rem; 
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
@@ -103,23 +104,25 @@ body {
 .main-heading {
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem; 
-  color: var(--color-gold-accent); 
+  color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
   margin: 0.5rem 0 0.5rem;
   line-height: 1.1; 
 }
 
-.date-fancy {
-  font-size: 3rem; 
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 700;
-  letter-spacing: 5px; 
-  color: var(--color-text); 
-  margin: 1rem 0 1.5rem; 
-  text-transform: uppercase;
-  border-bottom: 1px solid #ddd; 
-  padding-bottom: 1.5rem;
-  display: inline-block;
-  max-width: 400px;
+/* Date inside Save The Date Section */
+.save-the-date-section .date-fancy {
+  font-size: 2.5rem; 
+  font-family: 'Dancing Script', cursive; 
+  font-weight: 400;
+  letter-spacing: 0; 
+  color: white; 
+  margin: 0 0 1rem; 
+  text-transform: none;
+  border-bottom: none; 
+  padding-bottom: 0;
+  display: block;
+  max-width: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
 .section-title {
@@ -131,37 +134,50 @@ body {
     margin-bottom: 2rem;
 }
 
-.gold-bg .section-title, .white-title {
+/* UPDATED: Changed from .gold-bg to .blue-bg */
+.blue-bg .section-title, .white-title {
     color: white; 
 }
 
 
 /*
 ======================================================
-  COUNTDOWN TIMER
+  COUNTDOWN TIMER STYLES
 ======================================================
 */
+.countdown-wrapper {
+    margin-top: 3rem; 
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.5); 
+    position: relative;
+    z-index: 1;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 2.5rem; 
-  margin: 2rem 0; 
+  gap: 3rem; 
+  margin: 1rem 0; 
   flex-wrap: wrap;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem; 
-  color: var(--color-light-text); 
+  color: #fff; 
 }
 
 .countdown div {
     line-height: 1.2;
+    text-transform: uppercase;
+    font-size: 1.1rem; 
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 .countdown span {
-  font-weight: 400;
-  font-size: 3.5rem; 
+  font-weight: 700;
+  font-size: 5rem; 
   display: block;
-  color: var(--color-gold-accent); 
+  color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
   margin-bottom: 0.3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
 }
 
 
@@ -182,7 +198,7 @@ body {
 
 .photo-collage {
     width: 55%;
-    background-color: var(--color-dark-brown);
+    background-color: var(--color-dark-blue); /* UPDATED BLOCK COLOR */
     position: relative;
     padding: 1.5rem;
     display: grid;
@@ -195,7 +211,6 @@ body {
     width: 100%;
     height: 350px; 
     object-fit: cover; 
-    /* Ito ang nagdidilim sa image para mas makita ang text */
     filter: brightness(85%); 
 }
 
@@ -210,7 +225,6 @@ body {
     width: calc(33.33% - 7px);
     height: 180px; 
     object-fit: cover; 
-    /* Ito ang nagdidilim sa image para mas makita ang text */
     filter: brightness(85%);
 }
 
@@ -245,7 +259,7 @@ body {
 
 .event-time-table span {
     font-weight: bold;
-    color: var(--color-gold-accent);
+    color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
     display: inline-block;
     width: 100px; 
     font-family: 'Bebas Neue', sans-serif;
@@ -270,8 +284,9 @@ body {
     flex: 1;
 }
 
-.gold-bg h3 {
-    color: var(--color-gold-accent);
+/* UPDATED: Changed from .gold-bg to .blue-bg */
+.blue-bg h3 {
+    color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
     font-size: 1.3rem;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
@@ -325,7 +340,7 @@ body {
 .location-btn {
   padding: 0.8rem 1.8rem; 
   font-size: 1rem;
-  background-color: var(--color-gold-accent); 
+  background-color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
   color: white;
   border: none;
   border-radius: 50px; 
@@ -336,23 +351,23 @@ body {
 }
 
 .location-btn:hover {
-    background-color: #a07f59;
+    background-color: #8c929c; /* Darker silver/gray on hover */
 }
 
 
 /*
 ======================================================
-  EMBEDDED VIDEO RESPONSIVE FIX (LANDSCAPE 16:9 STANDARD)
+  EMBEDDED VIDEO RESPONSIVE FIX
 ======================================================
 */
 .video-container {
     position: relative;
-    /* ITO ANG STANDARD 16:9 ASPECT RATIO (56.25%) */
+    /* STANDARD 16:9 ASPECT RATIO */
     padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     margin-bottom: 3rem; 
-    /* PINALAKIHANG MAX-WIDTH PARA MAS MALAPAD ANG VIDEO (Maximum 900px) */
+    /* PINALAKIHANG MAX-WIDTH PARA SA LANDSCAPE */
     max-width: 900px; 
     margin: 0 auto 3rem auto;
     /* Background color para itago ang black padding sa gilid (kung meron) */
@@ -372,13 +387,6 @@ body {
     object-fit: cover; 
 }
 
-/* ADJUSTMENT FOR MOBILE */
-@media (max-width: 768px) {
-    /* Sa mobile, mas maganda kung 16:9 pa rin, kaya ibalik natin sa 56.25% */
-    .video-container {
-        padding-bottom: 56.25%; 
-    }
-}
 /*
 ======================================================
   CLOSING SECTION 
@@ -414,14 +422,14 @@ body {
 ======================================================
 */
 @media (max-width: 768px) {
-  .save-the-date-section { padding: 6rem 1rem; }
+  .save-the-date-section { padding: 6rem 1rem 3rem 1rem; }
   .save-date-word { font-size: 2.8rem; }
   .save-date-small { font-size: 1.2rem; }
   .main-heading { font-size: 2.8rem; }
-  .date-fancy { font-size: 2.5rem; letter-spacing: 3px; }
+  .save-the-date-section .date-fancy { font-size: 2rem; }
   .countdown { gap: 1rem; }
-  .countdown span { font-size: 3rem; }
-  .countdown div { font-size: 1rem; }
+  .countdown span { font-size: 3.5rem; }
+  .countdown div { font-size: 0.9rem; }
   
   /* Image/Story Section stacks on mobile */
   .image-text-section {
@@ -450,7 +458,7 @@ body {
       text-align: center;
   }
   .info-column h3 {
-      border-bottom: 1px solid var(--color-gold-accent);
+      border-bottom: 1px solid var(--color-silver-accent);
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
       display: inline-block;
@@ -459,15 +467,15 @@ body {
       font-size: 1.1rem;
   }
 
-  /* Responsive video fix for mobile */
+  /* Video fix for mobile */
   .video-container {
-      padding-bottom: 65%; /* Slightly taller on mobile for better visibility */
+      padding-bottom: 65%;
   }
 }
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (MATCHING THEME)
+  ENVELOPE SCREEN STYLES (UPDATED TO DUSTY BLUE THEME)
 ======================================================
 */
 .envelope-screen {
@@ -475,7 +483,7 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-dark-brown); 
+  background: var(--color-dark-blue); /* DUSTY BLUE */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -490,7 +498,7 @@ body {
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid #2e1c18; /* Darker flap */
+  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP */
   position: relative;
   z-index: 2;
 }
@@ -498,7 +506,7 @@ body {
 .envelope-body {
   width: 100%;
   height: 60vh;
-  background: #2e1c18; /* Darker body */
+  background: #4a6681; /* DARKER BLUE BODY */
   position: relative;
   z-index: 1;
 }
@@ -513,7 +521,7 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-gold-accent); 
+  border: 3px solid var(--color-silver-accent); /* SILVER BORDER */
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s ease;
@@ -560,7 +568,7 @@ body {
   transform: skewX(-30deg);
 }
 
-/* Remove the old container and decor styling */
+/* Cleanup of old unused styles */
 .invitation-container {
   display: contents; 
   padding: 0 !important;
