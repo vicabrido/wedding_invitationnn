@@ -472,7 +472,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FIXED)
+  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FINAL FIX)
 ======================================================
 */
 .envelope-screen {
@@ -488,28 +488,32 @@ body {
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
+  /* Ginawa kong column para ma-ayos ang positioning ng flap at body */
   flex-direction: column; 
 }
 
 .envelope-flap {
-  /* Flap (Top Triangle) - Naka-open, kaya color ng flap ang border-top */
+  /* Flap (Top Triangle) */
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP COLOR */
+  /* Ang kulay ng flap ay Dark Blue */
+  border-top: 40vh solid #4a6681; 
+  /* Kukunin ang posisyon base sa envelope-screen */
   position: absolute; 
-  top: 0;
-  z-index: 2;
+  top: 0; /* Simula sa pinakatuktok */
+  z-index: 3; /* Dapat nasa ibabaw ng lahat maliban sa button */
 }
 
 .envelope-body {
   /* Body (Bottom Half) - Dark Blue */
   width: 100%;
   height: 60vh;
-  background: #4a6681; /* DARKER BLUE COLOR */
+  background: #4a6681; 
+  /* Kukunin ang posisyon base sa envelope-screen */
   position: absolute; 
-  bottom: 0;
+  bottom: 0; /* Simula sa pinakababa */
   z-index: 1;
 }
 
@@ -526,7 +530,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   border: 3px solid var(--color-silver-accent);
   cursor: pointer;
-  z-index: 3;
+  z-index: 4; /* Dapat nasa pinaka-ibabaw para mapindot */
   transition: transform 0.3s ease;
 }
 
@@ -539,16 +543,16 @@ body {
   pointer-events: none;
 }
 
-/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - ETO ANG KINAKAILANGAN ** */
+/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - FINAL CODE ** */
 .envelope-bottom-lines {
   position: absolute;
-  /* Nagsisimula kung saan nagtatapos ang flap (40vh) */
+  /* Nagsisimula kung saan nagtatapos ang flap */
   top: 40vh; 
   width: 100%;
   /* Sinasakop ang buong height ng envelope body (60vh) */
   height: 60vh; 
   overflow: hidden;
-  /* Dapat nasa ibabaw ito ng blue body */
+  /* Dapat nasa ibabaw ito ng blue body at nasa ilalim ng flap */
   z-index: 2; 
 }
 
@@ -564,13 +568,13 @@ body {
 
 .left-line {
   left: 0;
-  /* Gumagawa ng triangle sa kaliwang bahagi */
+  /* Clip path: (Gitna, Tuktok) -> (Kaliwa, Baba) -> (Kaliwa, Tuktok) */
   clip-path: polygon(100% 0, 0 100%, 0 0); 
 }
 
 .right-line {
   right: 0;
-  /* Gumagawa ng triangle sa kanang bahagi */
+  /* Clip path: (Gitna, Tuktok) -> (Kanan, Baba) -> (Kanan, Tuktok) */
   clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
