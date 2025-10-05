@@ -9,7 +9,6 @@
   --color-cream: #f4f0e6; /* Light Cream Background Block Color */
   --color-text: #2c3e50; /* Dark Text */
   --color-light-text: #5c6d82; /* Muted Text */
-  --color-darker-envelope: #4a6681; /* Slightly darker shade for envelope flap/body */
 }
 
 body {
@@ -39,10 +38,6 @@ body {
     color: white; 
 }
 
-.hidden {
-    display: none;
-}
-
 
 /*
 ======================================================
@@ -51,11 +46,10 @@ body {
 */
 .save-the-date-section {
   padding: 8rem 1rem 3rem 1rem; 
-  /* Tiyakin na ang background.jpg ay nasa folder ninyo */
-  background-image: url('background.jpg'); 
+  background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
-  font-family: 'AmsterdamFour', cursive; 
+  font-family: 'AmsterdamFour', cursive;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
   position: relative;
@@ -114,16 +108,20 @@ body {
   line-height: 1.1; 
 }
 
-/* Date inside Info Section (FIXED CLASS NAME) */
-.date-fancy-inner {
+/* Date inside Save The Date Section */
+.save-the-date-section .date-fancy {
   font-size: 2.5rem; 
   font-family: 'Dancing Script', cursive; 
   font-weight: 400;
   letter-spacing: 0; 
-  color: var(--color-text); 
+  color: white; 
   margin: 0 0 1rem; 
   text-transform: none;
+  border-bottom: none; 
+  padding-bottom: 0;
   display: block;
+  max-width: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
 .section-title {
@@ -145,16 +143,22 @@ body {
   COUNTDOWN TIMER STYLES
 ======================================================
 */
+.countdown-wrapper {
+    margin-top: 3rem; 
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.5); 
+    position: relative;
+    z-index: 1;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
   gap: 3rem; 
-  margin-top: 3rem; 
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-light-text);
+  margin: 1rem 0; 
   flex-wrap: wrap;
   font-family: 'Bebas Neue', sans-serif;
-  color: var(--color-text); 
+  color: #fff; 
 }
 
 .countdown div {
@@ -171,6 +175,7 @@ body {
   display: block;
   color: var(--color-silver-accent); 
   margin-bottom: 0.3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
 }
 
 
@@ -198,7 +203,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-/* Please update the image names here: 1.jpg, 2.jpg, 3.jpg, 4.jpg */
+
 .collage-main-img {
     grid-column: 1 / 3;
     width: 100%;
@@ -254,7 +259,7 @@ body {
     font-weight: bold;
     color: var(--color-silver-accent); 
     display: inline-block;
-    width: 120px; /* Increased width for time alignment */
+    width: 100px; 
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
 }
@@ -340,7 +345,6 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 2px;
   transition: background-color 0.3s ease;
-  display: inline-block; 
 }
 
 .location-btn:hover {
@@ -355,12 +359,15 @@ body {
 */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    /* STANDARD 16:9 ASPECT RATIO */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     margin-bottom: 3rem; 
+    /* PINALAKIHANG MAX-WIDTH PARA SA LANDSCAPE */
     max-width: 900px; 
     margin: 0 auto 3rem auto;
+    /* Background color para itago ang black padding sa gilid (kung meron) */
     background-color: var(--color-cream); 
 }
 
@@ -416,7 +423,7 @@ body {
   .save-date-word { font-size: 2.8rem; }
   .save-date-small { font-size: 1.2rem; }
   .main-heading { font-size: 2.8rem; }
-  .date-fancy-inner { font-size: 2rem; } /* Use the new class */
+  .save-the-date-section .date-fancy { font-size: 2rem; }
   .countdown { gap: 1rem; }
   .countdown span { font-size: 3.5rem; }
   .countdown div { font-size: 0.9rem; }
@@ -456,7 +463,7 @@ body {
   .event-time-table {
       font-size: 1.1rem;
   }
-  
+
   /* Video fix for mobile */
   .video-container {
       padding-bottom: 65%;
@@ -465,7 +472,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES) - **FIXED**
+  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FIXED)
 ======================================================
 */
 .envelope-screen {
@@ -481,7 +488,7 @@ body {
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .envelope-flap {
@@ -568,7 +575,8 @@ body {
   clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
-/* END OF ANGLED LINES */
+/* ** END OF ANGLED LINES ** */
+
 
 /* Glitter styles remains the same */
 .glitter-container {
