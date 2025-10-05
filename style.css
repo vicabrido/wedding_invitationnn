@@ -472,7 +472,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FINAL FIX)
+  ENVELOPE SCREEN STYLES (FINAL & WORKING ENVELOPE)
 ======================================================
 */
 .envelope-screen {
@@ -480,8 +480,8 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  /* Gumamit ng Dark Blue background para sa buong screen */
-  background: var(--color-darker-envelope, #4a6681); 
+  /* Gawin nating CREAM ang kulay ng base ng screen, para ito ang makikita sa loob */
+  background: var(--color-cream); 
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -497,10 +497,11 @@ body {
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
+  /* Ang kulay ng flap ay Dark Blue */
   border-top: 40vh solid var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  top: 0; /* Tiyak na nasa tuktok */
-  z-index: 3; 
+  top: 0; 
+  z-index: 3; /* Nasa ibabaw */
 }
 
 .envelope-body {
@@ -509,13 +510,13 @@ body {
   height: 60vh;
   background: var(--color-darker-envelope, #4a6681); 
   position: absolute; 
-  bottom: 0; /* Tiyak na nasa ibaba */
-  z-index: 1; /* Nasa pinakailalim */
+  bottom: 0; 
+  z-index: 2; /* Nasa ibabaw ng Cream lines */
 }
 
 .heart-button {
+  /* ... (no change needed here) ... */
   position: absolute;
-  /* Posisyon sa gitna ng pagitan ng flap (40vh) at body (60vh) */
   top: calc(40vh - 2.5rem); 
   left: 50%;
   transform: translateX(-50%);
@@ -539,35 +540,42 @@ body {
   pointer-events: none;
 }
 
-/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - ITO ANG LOOB NG ENVELOPE ** */
+/* ** ANGLED V-SHAPE OPENING ** */
+/* Ito na ang DARK BLUE side/bottom flaps na tumatakip sa CREAM background */
 .envelope-bottom-lines {
   position: absolute;
   top: 40vh; /* Nagsisimula kung saan nagtatapos ang flap */
   width: 100%;
   height: 60vh; /* Sinasakop ang buong body area */
   overflow: hidden;
-  z-index: 2; /* Nasa ibabaw ng envelope body (z-index 1) at ilalim ng flap (z-index 3) */
+  /* Hindi na ito kailangan ng background, ang purpose nito ay ang maging container lang */
+  z-index: 3; /* Dapat nasa ibabaw ng envelope body (z-index 2) at ilalim ng flap */
 }
 
-/* Ang dalawang Cream triangles na bumubuo sa V-shape */
+/* Gumawa tayo ng Dark Blue na triangles para TAKPAN ang gilid */
+/* (Iniba ko ang logic para mas madaling gawin) */
+
 .left-line,
 .right-line {
   position: absolute;
   top: 0; 
   height: 100%; /* 60vh */
   width: 50%; /* Kalahati ng screen width */
-  background-color: var(--color-cream); /* CREAM COLOR */
+  /* Kulay DARK BLUE ang triangles na tatakip sa gilid */
+  background-color: var(--color-darker-envelope, #4a6681); 
 }
 
 .left-line {
   left: 0;
   /* Clip path: (Top-Center) -> (Bottom-Left) -> (Top-Left) */
+  /* TATAKPAN lang nito ang kaliwang gilid. Ang gitna ay CREAM */
   clip-path: polygon(100% 0, 0 100%, 0 0); 
 }
 
 .right-line {
   right: 0;
   /* Clip path: (Top-Center) -> (Bottom-Right) -> (Top-Right) */
+  /* TATAKPAN lang nito ang kanang gilid. Ang gitna ay CREAM */
   clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
