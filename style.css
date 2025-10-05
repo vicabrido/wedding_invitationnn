@@ -189,8 +189,6 @@ body {
     padding: 0;
     display: flex;
     flex-wrap: nowrap;
-    align-items: stretch;
-    min-height: 600px;
     width: 100%;
 }
 
@@ -434,7 +432,10 @@ body {
   
   /* Image/Story Section stacks on mobile */
   .image-text-section {
+      .image-text-section {
       flex-direction: column;
+      align-items: center; /* Tiyaking naka-center ang laman */
+      justify-content: center;
   }
   .photo-collage, .story-text-wrapper {
       width: 100%;
