@@ -1,10 +1,10 @@
 /*
 ======================================================
-  GLOBAL COLORS AND FONTS (UPDATED TO DUSTY BLUE THEME)
+  GLOBAL COLORS AND FONTS (DUSTY BLUE THEME)
 ======================================================
 */
 :root {
-  --color-dark-blue: #5b7a97; /* Dusty Blue Base (Background/Block Color) */
+  --color-dark-blue: #5b7a97; /* Dusty Blue Base (Block Color / Envelope Body) */
   --color-silver-accent: #a3aab6; /* Elegant Silver/Gray Accent */
   --color-cream: #f4f0e6; /* Light Cream Background Block Color */
   --color-text: #2c3e50; /* Dark Text */
@@ -33,7 +33,6 @@ body {
     color: var(--color-text);
 }
 
-/* UPDATED: Changed from .gold-bg to .blue-bg */
 .blue-bg {
     background-color: var(--color-dark-blue);
     color: white; 
@@ -104,7 +103,7 @@ body {
 .main-heading {
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem; 
-  color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
+  color: var(--color-silver-accent); 
   margin: 0.5rem 0 0.5rem;
   line-height: 1.1; 
 }
@@ -134,7 +133,6 @@ body {
     margin-bottom: 2rem;
 }
 
-/* UPDATED: Changed from .gold-bg to .blue-bg */
 .blue-bg .section-title, .white-title {
     color: white; 
 }
@@ -175,7 +173,7 @@ body {
   font-weight: 700;
   font-size: 5rem; 
   display: block;
-  color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
+  color: var(--color-silver-accent); 
   margin-bottom: 0.3rem;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
 }
@@ -198,7 +196,7 @@ body {
 
 .photo-collage {
     width: 55%;
-    background-color: var(--color-dark-blue); /* UPDATED BLOCK COLOR */
+    background-color: var(--color-dark-blue); 
     position: relative;
     padding: 1.5rem;
     display: grid;
@@ -259,7 +257,7 @@ body {
 
 .event-time-table span {
     font-weight: bold;
-    color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
+    color: var(--color-silver-accent); 
     display: inline-block;
     width: 100px; 
     font-family: 'Bebas Neue', sans-serif;
@@ -284,9 +282,8 @@ body {
     flex: 1;
 }
 
-/* UPDATED: Changed from .gold-bg to .blue-bg */
 .blue-bg h3 {
-    color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
+    color: var(--color-silver-accent); 
     font-size: 1.3rem;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
@@ -340,7 +337,7 @@ body {
 .location-btn {
   padding: 0.8rem 1.8rem; 
   font-size: 1rem;
-  background-color: var(--color-silver-accent); /* UPDATED ACCENT COLOR */
+  background-color: var(--color-silver-accent); 
   color: white;
   border: none;
   border-radius: 50px; 
@@ -351,7 +348,7 @@ body {
 }
 
 .location-btn:hover {
-    background-color: #8c929c; /* Darker silver/gray on hover */
+    background-color: #8c929c; 
 }
 
 
@@ -475,7 +472,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (UPDATED TO DUSTY BLUE THEME)
+  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FIXED)
 ======================================================
 */
 .envelope-screen {
@@ -498,7 +495,7 @@ body {
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP */
+  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP (Para mas may lalim) */
   position: relative;
   z-index: 2;
 }
@@ -540,6 +537,7 @@ body {
   display: none;
 }
 
+/* ** ANGLED LINES AT THE BOTTOM (Ang kailangan ninyo) ** */
 .envelope-bottom-lines {
   position: absolute;
   bottom: 0;
@@ -556,7 +554,7 @@ body {
 .right-line {
   width: 40%;
   height: 100%;
-  border-bottom: 4px solid white; 
+  border-bottom: 4px solid white; /* White line for contrast/detail */
   transform-origin: bottom;
 }
 
@@ -567,6 +565,7 @@ body {
 .right-line {
   transform: skewX(-30deg);
 }
+/* ** END OF ANGLED LINES ** */
 
 /* Cleanup of old unused styles */
 .invitation-container {
