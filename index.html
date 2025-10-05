@@ -1,216 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Raymond & Haydee Jane's Wedding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Dancing+Script:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" /> 
-  <style>
-    /* Custom font for Save the Date (Tiyakin na ang AmsterdamFour.ttf ay nasa folder) */
-    @font-face {
-      font-family: 'AmsterdamFour';
-      src: url('AmsterdamFour.ttf') format('truetype');
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raymond & Haydee Jane's Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" /> 
+  <style>
+    /* Custom font for Save the Date */
+    @font-face {
+      font-family: 'AmsterdamFour';
+      src: url('AmsterdamFour.ttf') format('truetype');
+    }
+  </style>
 </head>
 <body>
 
-    <div id="envelope" class="envelope-screen">
-    <div class="envelope-flap"></div>
-    <div class="envelope-body">
-            <div class="envelope-bottom-lines">
-        <div class="left-line"></div>
-        <div class="right-line"></div>
-      </div>
-    </div>
+  <div id="envelope" class="envelope-screen">
+    <div class="envelope-flap"></div>
+    <div class="envelope-body"></div>
+    
+    <div class="envelope-bottom-lines">
+      <div class="left-line"></div>
+      <div class="right-line"></div>
+    </div>
 
-    <div class="heart-button" onclick="openInvitation()">❤️</div>
-  </div>
+    <div class="heart-button" onclick="openInvitation()">❤️</div>
+  </div>
 
-    <audio id="bg-music" loop>
-    <source src="music.mp3" type="audio/mpeg" />
-  </audio>
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
 
-    <div class="glitter-container"></div>
+  <div class="glitter-container"></div>
 
-    <div id="invitation" class="hidden">
+  <div id="invitation" class="hidden">
 
-    <div class="save-the-date-section">
-      <div class="save-text-wrapper">
-        <span class="save-date-word">Save</span>
-        <span class="save-date-small">the</span>
-        <span class="save-date-word">Date</span>
-      </div>
-    </div>
+    <div class="save-the-date-section">
+      <div class="save-text-wrapper">
+        <span class="save-date-word">Save</span>
+        <span class="save-date-small">the</span>
+        <span class="save-date-word">Date</span>
+      </div>
+    </div>
 
-    <section class="info-section cream-bg">
-      <p class="wedding-of">The Wedding Of</p>
-      <h1 class="main-heading">Raymond & Haydee Jane</h1>
-      <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
-      
-            <div class="countdown">
-        <div><span id="days">00</span> DAYS</div>
-        <div><span id="hours">00</span> HOURS</div>
-        <div><span id="minutes">00</span> MINUTES</div>
-        <div><span id="seconds">00</span> SECONDS</div>
-      </div>
-    </section>
-    
-        <section class="image-text-section blue-bg">
-        <div class="photo-collage">
-                        <img src="1.jpg" alt="Couple on steps" class="collage-main-img" />
-            <div class="small-image-grid">
-                <img src="2.jpg" alt="Couple hugging" class="small-img" />
-                <img src="3.jpg" alt="Couple leaning in" class="small-img" />
-                <img src="4.jpg" alt="Couple close up" class="small-img" />
-            </div>
-        </div>
-        <div class="story-text-wrapper">
-            <h2 class="section-title white-title">A CHANCE ENCOUNTER</h2>
-            <p>Write a paragraph that tells your story as a couple. You can talk about what drew you to your partner, your journey together, and what makes your relationship unique. This is your chance to share your personality and relationship, and to thank your guests for being part of your love story, and when the special day means to you.</p>
-        </div>
-    </section>
+    <section class="info-section cream-bg">
+      <p class="wedding-of">The Wedding Of</p>
+      <h1 class="main-heading">Raymond & Haydee Jane</h1>
+      <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
+      
+      <div class="countdown">
+        <div><span id="days">00</span> DAYS</div>
+        <div><span id="hours">00</span> HOURS</div>
+        <div><span id="minutes">00</span> MINUTES</div>
+        <div><span id="seconds">00</span> SECONDS</div>
+      </div>
+    </section>
+    
+    <section class="image-text-section blue-bg">
+        <div class="photo-collage">
+            <img src="1.jpg" alt="Couple on steps" class="collage-main-img" />
+            <div class="small-image-grid">
+                <img src="2.jpg" alt="Couple hugging" class="small-img" />
+                <img src="3.jpg" alt="Couple leaning in" class="small-img" />
+                <img src="4.jpg" alt="Couple close up" class="small-img" />
+            </div>
+        </div>
+        <div class="story-text-wrapper">
+            <h2 class="section-title white-title">A CHANCE ENCOUNTER</h2>
+            <p>Write a paragraph that tells your story as a couple. You can talk about what drew you to your partner, your journey together, and what makes your relationship unique. This is your chance to share your personality and relationship, and to thank your guests for being part of your love story, and when the special day means to you.</p>
+        </div>
+    </section>
 
-        <section class="info-section cream-bg">
-      <h2 class="section-title">THE DAY'S EVENTS</h2>
-      <div class="event-time-table">
-          <p><span>3:00 PM</span> VOWS AND I DO'S</p>
-          <p><span>4:00 PM</span> COCKTAIL HOUR</p>
-          <p><span>5:00 PM</span> DINNER AND DANCING</p>
-          <p><span>8:00 PM</span> THE SEND-OFF</p>
-      </div>
-    </section>
-    
-        <section class="info-section blue-bg">
-      <h2 class="section-title white-title">GUEST INFORMATION</h2>
-      <div class="guest-info-grid">
-          <div class="info-column dress-code">
-              <h3>DRESS CODE</h3>
-              <p>We kindly request a semi-formal dress code for our ceremony and reception. Please wear an evening gown or a suit, or a long-sleeved polo and trousers. We can't wait to see you looking fabulous!</p>
-          </div>
-          <div class="info-column registry">
-              <h3>WEDDING REGISTRY</h3>
-              <p>We treasure your presence the most. Should you wish to honor us with a gift, we have registered at:</p>
-              <p> **BLISSFULLY HOME LIFESTYLE CENTER**<br>www.reallygreatsite.com </p>
-              <p> **COZY HOMES INC.**<br>www.reallygreatsite.com </p>
-          </div>
-          <div class="info-column contact">
-              <h3>MOBILE-FREE CEREMONY</h3>
-              <p>To ensure everyone fully enjoys the moment, we kindly ask you to put away your phones and cameras during the ceremony. Thank you for your understanding.</p>
-          </div>
-      </div>
-    </section>
-    
-        <section class="info-section cream-bg">
-      <h2 class="section-title">Location Details</h2>
-      
-      <div class="location-card">
-                    <div class="overlay-section" style="background-image: url('church.jpg');">
-            <div class="overlay-content">
-              <div class="overlay-text">Saint Anthony Abbot Parish</div>
-              <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
-            </div>
-          </div>
-      </div>
+    <section class="info-section cream-bg">
+      <h2 class="section-title">THE DAY'S EVENTS</h2>
+      <div class="event-time-table">
+          <p><span>3:00 PM</span> VOWS AND I DO'S</p>
+          <p><span>4:00 PM</span> COCKTAIL HOUR</p>
+          <p><span>5:00 PM</span> DINNER AND DANCING</p>
+          <p><span>8:00 PM</span> THE SEND-OFF</p>
+      </div>
+    </section>
+    
+    <section class="info-section blue-bg">
+      <h2 class="section-title white-title">GUEST INFORMATION</h2>
+      <div class="guest-info-grid">
+          <div class="info-column dress-code">
+              <h3>DRESS CODE</h3>
+              <p>We kindly request a semi-formal dress code for our ceremony and reception. Please wear an evening gown or a suit, or a long-sleeved polo and trousers. We can't wait to see you looking fabulous!</p>
+          </div>
+          <div class="info-column registry">
+              <h3>WEDDING REGISTRY</h3>
+              <p>We treasure your presence the most. Should you wish to honor us with a gift, we have registered at:</p>
+              <p> **BLISSFULLY HOME LIFESTYLE CENTER**<br>www.reallygreatsite.com </p>
+              <p> **COZY HOMES INC.**<br>www.reallygreatsite.com </p>
+          </div>
+          <div class="info-column contact">
+              <h3>MOBILE-FREE CEREMONY</h3>
+              <p>To ensure everyone fully enjoys the moment, we kindly ask you to put away your phones and cameras during the ceremony. Thank you for your understanding.</p>
+          </div>
+      </div>
+    </section>
+    
+    <section class="info-section cream-bg">
+      <h2 class="section-title">Location Details</h2>
+      
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('church.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Saint Anthony Abbot Parish</div>
+              <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
+      </div>
 
-      <div class="location-card">
-                    <div class="overlay-section" style="background-image: url('reception.jpg');">
-            <div class="overlay-content">
-              <div class="overlay-text">Resort Balai Alexandra</div>
-              <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
-            </div>
-          </div>
-      </div>
-    </section>
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('reception.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Resort Balai Alexandra</div>
+              <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
+      </div>
+    </section>
 
-        <section class="info-section cream-bg" style="padding-top: 1rem;">
-        <h2 class="section-title">OUR WEDDING TRAILER</h2>
-        <p style="margin-bottom: 2rem;">Watch our full trailer below!</p>
+    <section class="info-section cream-bg" style="padding-top: 1rem;">
+        <h2 class="section-title">OUR WEDDING TRAILER</h2>
+        <p style="margin-bottom: 2rem;">Watch our full trailer below!</p>
 
-        <div class="video-container" style="max-width: 700px; margin: 0 auto;">
-                        <iframe 
-                id="youtube-player" 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33&enablejsapi=1&modestbranding=1" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section>
-    
-        <section class="info-section cream-bg final-section">
-      <h2 class="section-title">WE CAN'T WAIT TO CELEBRATE WITH YOU</h2>
-            <img src="5.jpg" alt="Closing Photo" class="closing-photo" /> 
-      <p class="contact-line">For inquiries, please contact our Wedding Coordinator:</p>
-      <p class="footer-contact">**L. M. Co.** | (123) 456-7890 | email@reallygreatsite.com</p>
-    </section>
+        <div class="video-container" style="max-width: 700px; margin: 0 auto;">
+            <iframe 
+                id="youtube-player" 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33&enablejsapi=1&modestbranding=1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    <section class="info-section cream-bg final-section">
+      <h2 class="section-title">WE CAN'T WAIT TO CELEBRATE WITH YOU</h2>
+      <img src="5.jpg" alt="Closing Photo" class="closing-photo" /> 
+      <p class="contact-line">For inquiries, please contact our Wedding Coordinator:</p>
+      <p class="footer-contact">**L. M. Co.** | (123) 456-7890 | email@reallygreatsite.com</p>
+    </section>
 
-  </div>
+  </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 
-    <script src="countdown.js"></script>
-  
-    <script>
-    const bgMusic = document.getElementById('bg-music');
-    let player; // This will hold the YouTube player object
+  <script src="countdown.js"></script>
+  
+  <script>
+    const bgMusic = document.getElementById('bg-music');
+    let player; // This will hold the YouTube player object
 
-    // 1. Function called when the envelope is opened
-    function openInvitation() {
-      // We only play the music if the player object hasn't been created yet (first load)
-      // OR if the player is currently paused (state 2) or ended (state 0).
-      if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
-          bgMusic.play();
-      }
-      
-      document.getElementById('envelope').classList.add('fade-out');
-      document.getElementById('invitation').classList.remove('hidden');
-      setTimeout(() => {
-        document.getElementById('envelope').style.display = 'none';
-      }, 1000);
-    }
+    // 1. Function called when the envelope is opened
+    function openInvitation() {
+      // We only play the music if the player object hasn't been created yet (first load)
+      // OR if the player is currently paused (state 2) or ended (state 0).
+      if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
+          bgMusic.play();
+      }
+      
+      document.getElementById('envelope').classList.add('fade-out');
+      document.getElementById('invitation').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('envelope').style.display = 'none';
+      }, 1000);
+    }
 
-    // 2. Function called automatically by the YouTube API once it's ready
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('youtube-player', {
-        events: {
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
+    // 2. Function called automatically by the YouTube API once it's ready
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
 
-    // 3. Function to handle music control based on player state
-    function onPlayerStateChange(event) {
-      // event.data == 1 (Playing)
-      if (event.data === YT.PlayerState.PLAYING) {
-        // VIDEO STARTED: Pause background music
-        bgMusic.pause();
-      } 
-      // event.data == 0 (Ended) or 2 (Paused)
-      else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
-        // VIDEO STOPPED/PAUSED: Resume background music
-        if (!document.getElementById('invitation').classList.contains('hidden')) {
-             bgMusic.play();
-        }
-      }
-    }
+    // 3. Function to handle music control based on player state
+    function onPlayerStateChange(event) {
+      // event.data == 1 (Playing)
+      if (event.data === YT.PlayerState.PLAYING) {
+        // VIDEO STARTED: Pause background music
+        bgMusic.pause();
+      } 
+      // event.data == 0 (Ended) or 2 (Paused)
+      else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+        // VIDEO STOPPED/PAUSED: Resume background music
+        if (!document.getElementById('invitation').classList.contains('hidden')) {
+             bgMusic.play();
+        }
+      }
+    }
 
-    // Glitter script remains the same
-    const glitterContainer = document.querySelector('.glitter-container');
-    for (let i = 0; i < 80; i++) {
-      const g = document.createElement('div');
-      g.classList.add('glitter');
-      g.style.left = Math.random() * 100 + 'vw';
-      g.style.top = (-10 + Math.random() * 20) + 'vh';
-      g.style.animationDelay = Math.random() * 5 + 's';
-      g.style.animationDuration = 5 + Math.random() * 5 + 's';
-      glitterContainer.appendChild(g);
-    }
-  </script>
+    // Glitter script remains the same
+    const glitterContainer = document.querySelector('.glitter-container');
+    for (let i = 0; i < 80; i++) {
+      const g = document.createElement('div');
+      g.classList.add('glitter');
+      g.style.left = Math.random() * 100 + 'vw';
+      g.style.top = (-10 + Math.random() * 20) + 'vh';
+      g.style.animationDelay = Math.random() * 5 + 's';
+      g.style.animationDuration = 5 + Math.random() * 5 + 's';
+      glitterContainer.appendChild(g);
+    }
+  </script>
 </body>
 </html>
