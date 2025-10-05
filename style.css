@@ -480,8 +480,7 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  /* Darker shade of blue for the full screen background */
-  background: var(--color-darker-envelope); 
+  background: var(--color-dark-blue); /* DUSTY BLUE */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -492,32 +491,26 @@ body {
 }
 
 .envelope-flap {
-  /* Flap (Top Triangle) */
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  /* The flap should be the same as the body color */
-  border-top: 40vh solid var(--color-darker-envelope); 
-  position: absolute; 
-  top: 0;
+  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP (Para mas may lalim) */
+  position: relative;
   z-index: 2;
 }
 
 .envelope-body {
-  /* Body (Bottom Half) */
   width: 100%;
   height: 60vh;
-  background: var(--color-darker-envelope); /* DUSTY BLUE COLOR */
-  position: absolute; 
-  bottom: 0;
+  background: #4a6681; /* DARKER BLUE BODY */
+  position: relative;
   z-index: 1;
 }
 
 .heart-button {
   position: absolute;
-  /* Positioned at the top edge of the 60vh body (which starts at 40vh), minus half the button size */
-  top: calc(40vh - 2.5rem); 
+  top: calc(40vh - 2.5rem);
   left: 50%;
   transform: translateX(-50%);
   font-size: 3rem;
@@ -525,7 +518,7 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-silver-accent);
+  border: 3px solid var(--color-silver-accent); /* SILVER BORDER */
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s ease;
@@ -540,42 +533,53 @@ body {
   pointer-events: none;
 }
 
-/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) ** */
-.envelope-bottom-lines {
-  position: absolute;
-  /* Starts exactly where the flap ends (40vh) */
-  top: 40vh; 
-  width: 100%;
-  /* Covers the whole envelope-body height (60vh) */
-  height: 60vh; 
-  overflow: hidden;
-  /* The V-shape must sit on top of the blue body, so z-index: 2 */
-  z-index: 2; 
+.hidden {
+  display: none;
 }
 
-/* The two Cream triangles that create the V-shape */
+/* ** ANGLED LINES AT THE BOTTOM (Ang kailangan ninyo) ** */
+.envelope-bottom-lines {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 15%;
+  z-index: 1;
+}
+
 .left-line,
 .right-line {
-  position: absolute;
-  top: 0; 
-  height: 100%; /* 60vh */
-  width: 50%; /* Half the screen width */
-  background-color: var(--color-cream); /* CREAM COLOR */
+  width: 40%;
+  height: 100%;
+  border-bottom: 4px solid white; /* White line for contrast/detail */
+  transform-origin: bottom;
 }
 
 .left-line {
-  left: 0;
-  /* Clip path to show a triangle from top-center (100% width, 0 height) to bottom-left (0% width, 100% height) */
-  clip-path: polygon(100% 0, 0 100%, 0 0); 
+  transform: skewX(30deg);
 }
 
 .right-line {
-  right: 0;
-  /* Clip path to show a triangle from top-center (0% width, 0 height) to bottom-right (100% width, 100% height) */
-  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  transform: skewX(-30deg);
+}
+/* ** END OF ANGLED LINES ** */
+
+/* Cleanup of old unused styles */
+.invitation-container {
+  display: contents; 
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-/* ** END OF ANGLED LINES ** */
+.flower-decor, .flower-top-left, .flower-top-right, .flower-bottom-left, .flower-bottom-right {
+    display: none !important; 
+}
 
 
 /* Glitter styles remains the same */
