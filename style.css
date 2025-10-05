@@ -472,7 +472,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (FINAL & WORKING ENVELOPE)
+  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES - FIXED)
 ======================================================
 */
 .envelope-screen {
@@ -480,43 +480,37 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  /* Darker shade of blue for the full screen background */
-  background: var(--color-darker-envelope, #4a6681); 
+  background: var(--color-dark-blue); /* DUSTY BLUE */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
-  /* Fixed: Ang display: flex lang ang kailangan para mag-occupy ng full screen */
+  flex-direction: column;
 }
 
 .envelope-flap {
-  /* Flap (Top Triangle) - Dark Blue */
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid var(--color-darker-envelope, #4a6681); 
-  position: absolute; 
-  top: 0; /* Simula sa pinakatuktok */
-  z-index: 3; 
+  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP (Para mas may lalim) */
+  position: relative;
+  z-index: 2;
 }
 
 .envelope-body {
-  /* Body (Bottom Half) - Dark Blue */
   width: 100%;
   height: 60vh;
-  background: var(--color-darker-envelope, #4a6681); 
-  position: absolute; 
-  bottom: 0; /* Simula sa pinakababa */
-  z-index: 1; 
+  background: #4a6681; /* DARKER BLUE BODY */
+  position: relative;
+  z-index: 1;
 }
 
 .heart-button {
   position: absolute;
-  /* Posisyon: 40vh (Flap height) minus half of the button size (2.5rem) */
-  top: calc(40vh - 2.5rem); 
+  top: calc(40vh - 2.5rem);
   left: 50%;
   transform: translateX(-50%);
   font-size: 3rem;
@@ -524,9 +518,9 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-silver-accent);
+  border: 3px solid var(--color-silver-accent); /* SILVER BORDER */
   cursor: pointer;
-  z-index: 4; 
+  z-index: 3;
   transition: transform 0.3s ease;
 }
 
@@ -539,39 +533,54 @@ body {
   pointer-events: none;
 }
 
-/* ** ANGLED V-SHAPE OPENING (CREAM COLOR) - ITO ANG LOOB NG ENVELOPE ** */
-.envelope-bottom-lines {
-  position: absolute;
-  top: 40vh; /* Nagsisimula kung saan nagtatapos ang flap */
-  width: 100%;
-  height: 60vh; /* Sinasakop ang buong body area */
-  overflow: hidden;
-  z-index: 2; /* Nasa ibabaw ng envelope body (z-index 1) */
+.hidden {
+  display: none;
 }
 
-/* Ang dalawang Cream triangles na bumubuo sa V-shape */
+/* ** ANGLED LINES AT THE BOTTOM (Ang kailangan ninyo) ** */
+.envelope-bottom-lines {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 15%;
+  z-index: 1;
+}
+
 .left-line,
 .right-line {
-  position: absolute;
-  top: 0; 
-  height: 100%; /* 60vh */
-  width: 50%; /* Kalahati ng screen width */
-  background-color: var(--color-cream); /* CREAM COLOR */
+  width: 40%;
+  height: 100%;
+  border-bottom: 4px solid white; /* White line for contrast/detail */
+  transform-origin: bottom;
 }
 
 .left-line {
-  left: 0;
-  /* Clip path: (Top-Center) -> (Bottom-Left) -> (Top-Left) */
-  clip-path: polygon(100% 0, 0 100%, 0 0); 
+  transform: skewX(30deg);
 }
 
 .right-line {
-  right: 0;
-  /* Clip path: (Top-Center) -> (Bottom-Right) -> (Top-Right) */
-  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  transform: skewX(-30deg);
+}
+/* ** END OF ANGLED LINES ** */
+
+/* Cleanup of old unused styles */
+.invitation-container {
+  display: contents; 
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-/* ** END OF ANGLED LINES ** */
+.flower-decor, .flower-top-left, .flower-top-right, .flower-bottom-left, .flower-bottom-right {
+    display: none !important; 
+}
+
 
 /* Glitter styles remains the same */
 .glitter-container {
