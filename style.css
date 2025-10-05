@@ -195,10 +195,10 @@ body {
 }
 
 .photo-collage {
-    width: 55%;
+    width: 100%; 
     background-color: var(--color-dark-blue); 
     position: relative;
-    padding: 1.5rem;
+    padding: 1rem; /* Bawasan ang padding */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -357,16 +357,20 @@ body {
   EMBEDDED VIDEO RESPONSIVE FIX
 ======================================================
 */
+/*
+======================================================
+  EMBEDDED VIDEO RESPONSIVE FIX
+======================================================
+*/
 .video-container {
     position: relative;
     /* STANDARD 16:9 ASPECT RATIO */
     padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
-    margin-bottom: 3rem; 
-    /* PINALAKIHANG MAX-WIDTH PARA SA LANDSCAPE */
-    max-width: 900px; 
-    margin: 0 auto 3rem auto;
+    /* Inayos ang margin at inalis ang max-width para maging fluid */
+    margin: 0 auto 3rem auto; 
+    width: 95%; /* Limitahan lang sa 95% para may maliit na gap sa gilid */
     /* Background color para itago ang black padding sa gilid (kung meron) */
     background-color: var(--color-cream); 
 }
@@ -442,7 +446,7 @@ body {
       height: 120px; 
   }
   .story-text-wrapper {
-      padding: 2rem 1rem;
+      padding: 2rem 0; 
       text-align: center;
   }
 
