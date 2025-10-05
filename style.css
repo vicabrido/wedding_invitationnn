@@ -50,7 +50,7 @@ body {
 */
 .save-the-date-section {
   padding: 8rem 1rem 3rem 1rem; 
-  /* KUNG WALANG background.jpg, PALITAN PO ANG URL NITO! */
+  /* Tiyakin na ang background.jpg ay nasa folder ninyo */
   background-image: url('background.jpg'); 
   background-size: cover;
   background-position: center;
@@ -458,7 +458,7 @@ body {
 
 /*
 ======================================================
-  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES)
+  ENVELOPE SCREEN STYLES (DUSTY BLUE with ANGLES) - **FIXED**
 ======================================================
 */
 .envelope-screen {
@@ -466,37 +466,42 @@ body {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-dark-blue); /* DUSTY BLUE */
+  background: #3c546b; /* Slightly darker than dark-blue for screen bg */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   z-index: 10000;
   transition: opacity 1s ease;
   overflow: hidden;
-  flex-direction: column;
+  flex-direction: column; /* Stacks the flap and body vertically */
 }
 
 .envelope-flap {
+  /* Flap (Top Triangle) */
   width: 0;
   height: 0;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
-  border-top: 40vh solid #4a6681; /* DARKER BLUE FLAP */
-  position: relative;
+  border-top: 50vh solid var(--color-dark-blue); /* DUSTY BLUE COLOR */
+  position: absolute; /* Absolute positioning to cover the top half */
+  top: 0;
   z-index: 2;
 }
 
 .envelope-body {
+  /* Body (Bottom Half) */
   width: 100%;
-  height: 60vh;
-  background: #4a6681; /* DARKER BLUE BODY */
-  position: relative;
+  height: 50vh;
+  background: var(--color-dark-blue); /* DUSTY BLUE COLOR */
+  position: absolute; /* Absolute positioning to cover the bottom half */
+  bottom: 0;
   z-index: 1;
 }
 
 .heart-button {
   position: absolute;
-  top: calc(40vh - 2.5rem);
+  /* Adjusted top position to be in the center line (50vh) minus half the button size (2.5rem) */
+  top: calc(50vh - 2.5rem); 
   left: 50%;
   transform: translateX(-50%);
   font-size: 3rem;
@@ -504,7 +509,7 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  border: 3px solid var(--color-silver-accent); /* SILVER BORDER */
+  border: 3px solid var(--color-silver-accent);
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s ease;
@@ -520,57 +525,43 @@ body {
 }
 
 
-/* ** ANGLED LINES AT THE BOTTOM (FIXED) ** */
+/* ** ANGLED LINES AT THE BOTTOM (FIXED FOR 50/50 LAYOUT) ** */
 .envelope-bottom-lines {
   position: absolute;
-  bottom: 0;
+  top: 0; /* Align to the top of the 50vh envelope-body */
   width: 100%;
-  height: 60px;
+  height: 100%; 
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 10%; 
+  justify-content: center;
+  overflow: hidden;
   z-index: 1;
 }
 
 .left-line,
 .right-line {
-  width: 40%;
-  height: 100%;
-  border-bottom: 4px solid white; /* White line for detail */
+  position: absolute;
+  width: 50%;
+  height: 100%; /* Gamitin ang buong height ng envelope-body (50vh) */
   transform-origin: bottom;
+  top: 0; 
 }
 
 .left-line {
-  transform: skewX(30deg);
+  /* Cream triangle on the left side, angled to the center */
+  border-right: 50vw solid transparent;
+  border-top: 50vh solid var(--color-cream); /* CREAM COLOR */
+  left: 0;
+  /* Cuts the shape to form the angled V on the left half */
+  clip-path: polygon(0 0, 100% 0, 100% 100%); 
 }
 
 .right-line {
-  transform: skewX(-30deg);
+  /* Cream triangle on the right side, angled to the center */
+  border-left: 50vw solid transparent;
+  border-top: 50vh solid var(--color-cream); /* CREAM COLOR */
+  right: 0;
+  /* Cuts the shape to form the angled V on the right half */
+  clip-path: polygon(0 0, 0% 100%, 100% 0); 
 }
+
 /* ** END OF ANGLED LINES ** */
-
-/* Glitter styles */
-.glitter-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.glitter {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
-  border-radius: 50%;
-  animation: glitter-fall 10s linear infinite;
-  opacity: 0.8;
-  filter: blur(0.5px);
-}
-
-@keyframes glitter-fall {
-  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
-}
