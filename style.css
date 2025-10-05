@@ -440,13 +440,13 @@ body {
       width: 100%;
   }
   .collage-main-img {
-      height: 250px; 
+      height: 200px; 
   }
   .small-img {
-      height: 120px; 
+      height: 90px; 
   }
   .story-text-wrapper {
-      padding: 2rem 0; 
+      padding: 2rem 1rem; 
       text-align: center;
   }
 
