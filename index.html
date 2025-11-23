@@ -1,200 +1,217 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raymond & Haydee Jane - Wedding Invitation</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700&family=Bebas+Neue&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- Custom Font -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raymond & Haydee Jane's Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Dancing+Script&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" /> 
   <style>
+    /* Custom font for Save the Date */
     @font-face {
       font-family: 'AmsterdamFour';
       src: url('AmsterdamFour.ttf') format('truetype');
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ENVELOPE OPEN SCREEN -->
-  <div class="envelope" role="dialog" aria-modal="true">
-    <div class="envelope-inner">
-      <button class="open-heart" aria-label="Open invitation">
-        <img src="heart.png" alt="heart icon" />
-      </button>
-      <p class="invitation-hint">Tap to open</p>
+  <div id="envelope" class="envelope-screen">
+    <div class="envelope-flap"></div>
+    <div class="envelope-body"></div>
+    
+    <div class="envelope-bottom-lines">
+      <div class="left-line"></div>
+      <div class="right-line"></div>
     </div>
+
+    <div class="heart-button" onclick="openInvitation()">❤️</div>
   </div>
 
-  <!-- MUSIC -->
-  <audio id="bg-music" loop preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <div id="music-controls">
-    <button id="music-toggle" aria-pressed="false">🔇</button>
-  </div>
+  <div class="glitter-container"></div>
 
-  <!-- SAVE THE DATE -->
-  <section class="save-the-date-section">
-    <div class="save-text-wrapper">
-      <span class="save-date-word">Save</span>
-      <span class="save-date-word">The</span>
-      <span class="save-date-word">Date</span>
+  <div id="invitation" class="hidden">
+
+    <div class="save-the-date-section">
+      <div class="save-text-wrapper">
+        <span class="save-date-word">Save</span>
+        <span class="save-date-small">the</span>
+        <span class="save-date-word">Date</span>
+      </div>
     </div>
 
-    <p class="save-date-small wedding-of">The Wedding of</p>
-    <h1 class="main-heading">Raymond & Haydee Jane</h1>
-    <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
-
-    <div class="countdown-wrapper">
+    <section class="info-section cream-bg">
+      <p class="wedding-of">The Wedding Of</p>
+      <h1 class="main-heading">Raymond & Haydee Jane</h1>
+      <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
+      
       <div class="countdown">
-        <div><span id="days">00</span> days</div>
-        <div><span id="hours">00</span> hours</div>
-        <div><span id="minutes">00</span> minutes</div>
-        <div><span id="seconds">00</span> seconds</div>
+        <div><span id="days">00</span> DAYS</div>
+        <div><span id="hours">00</span> HOURS</div>
+        <div><span id="minutes">00</span> MINUTES</div>
+        <div><span id="seconds">00</span> SECONDS</div>
       </div>
-    </div>
-  </section>
-  <!-- STORY SECTION -->
-  <section class="image-text-section blue-bg">
-    <div class="photo-collage">
-      <img src="1.jpg" alt="Main Photo" class="collage-main-img" />
-      <div class="small-image-grid">
-        <img src="2.jpg" alt="" class="small-img" />
-        <img src="3.jpg" alt="" class="small-img" />
-        <img src="4.jpg" alt="" class="small-img" />
-      </div>
-    </div>
-
-    <div class="story-text-wrapper">
-      <h2 class="section-title white-title">Our Story</h2>
-      <p>
-        Every moment spent together has brought us here —  
-        a journey of love, trust, and unbreakable commitment.
-      </p>
-    </div>
-  </section>
-
-  <!-- WEDDING DETAILS -->
-  <section class="info-section cream-bg">
-    <h2 class="section-title">Wedding Ceremony</h2>
-
-    <div class="location-card">
-      <div class="overlay-section" style="background-image: url('church.jpg');">
-        <div class="overlay-content">
-          <p class="overlay-text">St. Joseph Cathedral</p>
-          <a href="#" class="location-btn">VIEW LOCATION</a>
+    </section>
+    
+    <section class="image-text-section blue-bg">
+        <div class="photo-collage">
+            <img src="1.jpg" alt="Couple on steps" class="collage-main-img" />
+            <div class="small-image-grid">
+                <img src="2.jpg" alt="Couple hugging" class="small-img" />
+                <img src="3.jpg" alt="Couple leaning in" class="small-img" />
+                <img src="4.jpg" alt="Couple close up" class="small-img" />
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="event-time-table">
-      <p><span>12:21 PM</span> — Processional</p>
-      <p><span>12:40 PM</span> — Exchange of Vows</p>
-      <p><span>1:00 PM</span> — Matrimony</p>
-    </div>
-  </section>
-
-
-  <!-- RECEPTION -->
-  <section class="info-section blue-bg">
-    <h2 class="section-title white-title">Reception</h2>
-
-    <div class="location-card">
-      <div class="overlay-section" style="background-image: url('reception.jpg');">
-        <div class="overlay-content">
-          <p class="overlay-text">Crystal Hall Pavilion</p>
-          <a href="#" class="location-btn">OPEN MAP</a>
+        <div class="story-text-wrapper">
+            <h2 class="section-title white-title">A CHANCE ENCOUNTER</h2>
+            <p>Our story began with a spark that turned into something extraordinary. From laughter to quiet moments, every memory shaped who we are together. We’ve grown through love, patience, and faith, building a bond stronger than words. This day is more than a wedding — it’s the start of our forever, shared with the people we love most.</p>
         </div>
+    </section>
+
+    <section class="info-section cream-bg">
+      <h2 class="section-title">THE DAY'S EVENTS</h2>
+      <div class="event-time-table">
+          <p><span>1:00 PM</span> WEDDING CEREMONY</p>
+          <p><span>2:00 PM</span> PICTORIAL</p>
+          <p><span>3:00 PM</span> WEDDING RECEPTION</p>
+          <p><span>5:30 PM</span> EARLY DINNER</p>
+          <p><span>6:00 PM</span> THE SEND-OFF</p>
       </div>
-    </div>
-
-    <div class="guest-info-grid">
-      <div class="info-column">
-        <h3>Attire</h3>
-        <p>Formal & Elegant</p>
+    </section>
+    
+    <section class="info-section blue-bg">
+      <h2 class="section-title white-title">GUEST INFORMATION</h2>
+      <div class="guest-info-grid">
+          <div class="info-column dress-code">
+              <h3>GUEST INFORMATION</h3>
+               <p>We kindly request a semi-formal dress code for our ceremony and reception. This day, wrapped in shades of dusty blue and cream</p>
+                <p>Please take at least a light lunch since the reception will be an early dinner. </p>
+                <p>Also, please note that the procession arrangements will begin at 12:21 PM, and the ceremony will start at 1:00 PM. </p>
+          </div>
+          <div class="info-column registry">
+              <h3>WEDDING GIFTS</h3>
+              <p>Your presence and prayer is the greatest gift of all, but for those who wish to give us something an enveloped gift will be very much appreciated</p>
+          </div>
+          <div class="info-column contact">
+              <h3>MOBILE-FREE CEREMONY</h3>
+              <p>To ensure everyone fully enjoys the moment, we kindly ask you to put away your phones and cameras during the ceremony. Thank you for your understanding.</p>
+          </div>
+      </div>
+    </section>
+    
+    <section class="info-section cream-bg">
+      <h2 class="section-title">Location Details</h2>
+      
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('church.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Saint Anthony Abbot Parish</div>
+              <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
       </div>
 
-      <div class="info-column">
-        <h3>Gifts</h3>
-        <p>Your presence is the greatest gift.</p>
+      <div class="location-card">
+          <div class="overlay-section" style="background-image: url('reception.jpg');">
+            <div class="overlay-content">
+              <div class="overlay-text">Resort Balai Alexandra</div>
+              <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
+            </div>
+          </div>
       </div>
+    </section>
 
-      <div class="info-column">
-        <h3>Notes</h3>
-        <p>Please arrive on time.</p>
-      </div>
-    </div>
-  </section>
-  <!-- VIDEO -->
-  <section class="info-section cream-bg">
-    <h2 class="section-title">Wedding Video</h2>
-    <div class="video-container">
-      <iframe 
-        src="https://www.youtube.com/embed/xxxxxxxxx" 
-        frameborder="0" allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+    <section class="info-section cream-bg" style="padding-top: 1rem;">
+        <h2 class="section-title">OUR WEDDING TRAILER</h2>
+        <p style="margin-bottom: 2rem;">Watch our full wedding trailer below!</p>
 
-  <!-- FINAL SECTION -->
-  <section class="info-section final-section">
-    <h2 class="section-title">See You On Our Special Day</h2>
-    <img src="closing.jpg" class="closing-photo" alt="Closing Photo" />
-    <p class="contact-line">
-      For inquiries, feel free to contact us.
-    </p>
-    <p class="footer-contact">
-      0912-345-6789 | 0918-765-4321
-    </p>
-  </section>
+        <div class="video-container" style="max-width: 700px; margin: 0 auto;">
+            <iframe 
+                id="youtube-player" 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/y9_lHCaNStY?si=L-M1w7yKAVlMSH33&enablejsapi=1&modestbranding=1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    <section class="info-section cream-bg final-section">
+      <h2 class="section-title">WE CAN'T WAIT TO CELEBRATE WITH YOU</h2>
+      <img src="5.jpg" alt="Closing Photo" class="closing-photo" /> 
+      <p class="contact-line">"A FOREVER THAT BEGINS NOW"</p>
+      <p class="footer-contact">#RAYdyToBeWithHAYDEE</p>
+    </section>
 
-  <!-- GLITTER EFFECT -->
-  <div class="glitter-container">
-    <!-- Glitter dots generated by JS -->
   </div>
 
-  <!-- COUNTDOWN -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script src="countdown.js"></script>
-
-  <!-- ENVELOPE & MUSIC JS -->
+  
   <script>
-    (function(){
-      const envelope = document.querySelector(".envelope");
-      const heart = document.querySelector(".open-heart");
-      const music = document.getElementById("bg-music");
-      const toggleBtn = document.getElementById("music-toggle");
+    const bgMusic = document.getElementById('bg-music');
+    let player; // This will hold the YouTube player object
 
-      function openEnvelope(e){
-        if(e) e.preventDefault();
-        document.body.classList.add("envelope-open");
-        envelope.classList.add("open");
-
-        if (music.paused){
-          music.play().catch(()=>{});
-          toggleBtn.textContent = "🔊";
-        }
+    // 1. Function called when the envelope is opened
+    function openInvitation() {
+      // We only play the music if the player object hasn't been created yet (first load)
+      // OR if the player is currently paused (state 2) or ended (state 0).
+      if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
+          bgMusic.play();
       }
+      
+      document.getElementById('envelope').classList.add('fade-out');
+      document.getElementById('invitation').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('envelope').style.display = 'none';
+      }, 1000);
+    }
 
-      heart.addEventListener("click", openEnvelope);
-      heart.addEventListener("touchstart", openEnvelope, {passive:false});
-
-      toggleBtn.addEventListener("click", ()=>{
-        if(music.paused){
-          music.play().catch(()=>{});
-          toggleBtn.textContent = "🔊";
-        } else {
-          music.pause();
-          toggleBtn.textContent = "🔇";
+    // 2. Function called automatically by the YouTube API once it's ready
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        events: {
+          'onStateChange': onPlayerStateChange
         }
       });
-    })();
-  </script>
+    }
 
+    // 3. Function to handle music control based on player state
+    function onPlayerStateChange(event) {
+      // event.data == 1 (Playing)
+      if (event.data === YT.PlayerState.PLAYING) {
+        // VIDEO STARTED: Pause background music
+        bgMusic.pause();
+      } 
+      // event.data == 0 (Ended) or 2 (Paused)
+      else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+        // VIDEO STOPPED/PAUSED: Resume background music
+        if (!document.getElementById('invitation').classList.contains('hidden')) {
+             bgMusic.play();
+        }
+      }
+    }
+
+    // Glitter script remains the same
+    const glitterContainer = document.querySelector('.glitter-container');
+    for (let i = 0; i < 80; i++) {
+      const g = document.createElement('div');
+      g.classList.add('glitter');
+      g.style.left = Math.random() * 100 + 'vw';
+      g.style.top = (-10 + Math.random() * 20) + 'vh';
+      g.style.animationDelay = Math.random() * 5 + 's';
+      g.style.animationDuration = 5 + Math.random() * 5 + 's';
+      glitterContainer.appendChild(g);
+    }
+  </script>
 </body>
 </html>
