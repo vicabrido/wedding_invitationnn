@@ -652,4 +652,64 @@ body {
   .slideshow-overlay { height: auto; }
   .slideshow-content .main-heading { font-size: 2.2rem; }
 }
+/* ---- Desktop-friendly slideshow sizing & centering ---- */
+.slideshow-section {
+  /* give the slideshow more vertical room on large screens */
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+/* ensure slides have a minimum visible height on big screens */
+.slideshow-overlay .slide {
+  min-height: 520px;             /* more room for desktop */
+  background-size: cover;        /* keep cover */
+  background-position: center;
+  will-change: opacity, transform;
+}
+
+/* nudge content so heading + countdown sit centered on the image */
+.slideshow-content {
+  padding-top: 3.5rem;           /* push content down slightly */
+  padding-bottom: 1rem;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* center the heading + date + countdown column */
+.slideshow-content .wedding-of,
+.slideshow-content .main-heading,
+.slideshow-content .date-fancy {
+  text-align: center;
+}
+
+/* center countdown and limit its width so it doesn't stretch too wide */
+.slideshow-content .countdown {
+  justify-content: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* increase spacing above countdown numbers so they don't overlap heading */
+.slideshow-content .countdown { margin-top: 1.25rem; }
+
+/* Slight tweak to make numbers more readable on busy images */
+.slideshow-content .countdown span {
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.35);
+}
+
+/* Larger screens: make slideshow taller and heading a bit bigger */
+@media (min-width: 1200px) {
+  .slideshow-overlay .slide { min-height: 640px; }
+  .slideshow-content .main-heading { font-size: 4rem; line-height: 1.05; }
+  .slideshow-content .countdown span { font-size: 6.5rem; }
+}
+
+/* Mobile: keep previous mobile tweaks but make slideshow shorter */
+@media (max-width: 768px) {
+  .slideshow-overlay .slide { min-height: 260px; background-position: center top; }
+  .slideshow-content { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .slideshow-content .main-heading { font-size: 2.2rem; }
+  .slideshow-content .countdown span { font-size: 3.5rem; }
+}
 
