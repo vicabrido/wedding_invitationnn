@@ -713,3 +713,18 @@ body {
   .slideshow-content .countdown span { font-size: 3.5rem; }
 }
 
+/* Quick: keep subject centered and reduce extreme cropping */
+.slideshow-overlay .slide {
+  background-size: cover;        /* keep cover for full-bleed look */
+  background-position: center center; /* center the subject */
+  min-height: 480px;            /* reduce min-height so less vertical crop */
+  transition: opacity 1s ease, transform 8s ease;
+}
+
+/* Slightly smaller height for narrow screens */
+@media (max-width: 1024px) {
+  .slideshow-overlay .slide { min-height: 420px; background-position: center top; }
+}
+@media (max-width: 768px) {
+  .slideshow-overlay .slide { min-height: 260px; background-position: center top; }
+}
