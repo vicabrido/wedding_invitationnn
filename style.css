@@ -728,3 +728,14 @@ body {
 @media (max-width: 768px) {
   .slideshow-overlay .slide { min-height: 260px; background-position: center top; }
 }
+
+
+.full-invite-img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
