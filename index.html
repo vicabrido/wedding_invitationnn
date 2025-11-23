@@ -2,6 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <section class="info-section cream-bg slideshow-section">
+  <!-- Slideshow overlay (behind content) -->
+  <div class="slideshow-overlay" aria-hidden="true">
+    <!-- slides will be filled by JS -->
+  </div>
+
+  <!-- Content that sits on top of slideshow -->
+  <div class="slideshow-content">
+    <p class="wedding-of">The Wedding Of</p>
+    <h1 class="main-heading">Raymond & Haydee Jane</h1>
+    <p class="date-fancy">12 | 21 | 25 — 12:21 PM</p>
+
+    <div class="countdown">
+      <div><span id="days">00</span> DAYS</div>
+      <div><span id="hours">00</span> HOURS</div>
+      <div><span id="minutes">00</span> MINUTES</div>
+      <div><span id="seconds">00</span> SECONDS</div>
+    </div>
+  </div>
+</section>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raymond & Haydee Jane's Wedding</title>
@@ -209,5 +231,74 @@
       glitterContainer.appendChild(g);
     }
   </script>
+
+
+  <script>
+(function(){
+  // Replace these URLs if your images live in a subfolder or branch
+  const images = [
+    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s1.jpg",
+    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s2.jpg",
+    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s3.jpg",
+    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s4.jpg",
+    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s5.jpg"
+  ];
+
+  const overlay = document.querySelector('.slideshow-overlay');
+  if (!overlay) return;
+
+  // Create 3 slide layers for smooth crossfade
+  const NUM_LAYERS = 3;
+  for (let i = 0; i < NUM_LAYERS; i++) {
+    const div = document.createElement('div');
+    div.className = 'slide';
+    overlay.appendChild(div);
+  }
+
+  let pos = 0;
+  function render() {
+    const slides = overlay.querySelectorAll('.slide');
+
+    // assign background images offset by pos so each slide layer shows next images
+    slides.forEach((s, i) => {
+      const imgIndex = (pos + i) % images.length;
+      s.style.backgroundImage = `url('${images[imgIndex]}')`;
+    });
+
+    // fade top-most layer in
+    slides.forEach(s => s.classList.remove('active'));
+    slides[0].classList.add('active');
+
+    // rotate the DOM nodes so the next render uses the next layer as top
+    overlay.appendChild(slides[0]);
+  }
+
+  // initial
+  render();
+
+  // rotate every 4 seconds (adjust if you want slower/faster)
+  const interval = 4000;
+  let timer = setInterval(() => {
+    pos = (pos + 1) % images.length;
+    render();
+  }, interval);
+
+  // pause on hover (optional: for better UX)
+  const section = document.querySelector('.slideshow-section');
+  if (section) {
+    section.addEventListener('mouseenter', () => { clearInterval(timer); timer = null; });
+    section.addEventListener('mouseleave', () => { if (!timer) timer = setInterval(() => { pos = (pos + 1) % images.length; render(); }, interval); });
+  }
+
+  // Respect reduced motion preference
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mq && mq.matches) {
+    clearInterval(timer);
+    const slides = overlay.querySelectorAll('.slide');
+    slides.forEach(s => s.style.transition = 'none');
+  }
+})();
+</script>
+
 </body>
 </html>
