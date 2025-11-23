@@ -274,7 +274,9 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding-top: 1rem;
+    color: #000; /* ← BLACK TEXT */
 }
+
 
 .info-column {
     flex: 1;
