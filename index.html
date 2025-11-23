@@ -228,19 +228,18 @@
 
   <script>
 (function(){
-  // Replace these URLs if your images live in a subfolder or branch
+  // use objects with url + focal position
   const images = [
-    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s1.jpg",
-    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s2.jpg",
-    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s3.jpg",
-    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s4.jpg",
-    "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s5.jpg"
+    { url: "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s1.jpg", pos: "center 40%" },
+    { url: "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s2.jpg", pos: "center 35%" },
+    { url: "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s3.jpg", pos: "center 50%" },
+    { url: "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s4.jpg", pos: "center 50%" },
+    { url: "https://raw.githubusercontent.com/vicabrido/wedding_invitationnn/main/s5.jpg", pos: "center 45%" }
   ];
 
   const overlay = document.querySelector('.slideshow-overlay');
   if (!overlay) return;
 
-  // Create 3 slide layers for smooth crossfade
   const NUM_LAYERS = 3;
   for (let i = 0; i < NUM_LAYERS; i++) {
     const div = document.createElement('div');
@@ -251,47 +250,36 @@
   let pos = 0;
   function render() {
     const slides = overlay.querySelectorAll('.slide');
-
-    // assign background images offset by pos so each slide layer shows next images
     slides.forEach((s, i) => {
-      const imgIndex = (pos + i) % images.length;
-      s.style.backgroundImage = `url('${images[imgIndex]}')`;
+      const imgObj = images[(pos + i) % images.length];
+      s.style.backgroundImage = `url('${imgObj.url}')`;
+      s.style.backgroundPosition = imgObj.pos || 'center center';
     });
-
-    // fade top-most layer in
     slides.forEach(s => s.classList.remove('active'));
     slides[0].classList.add('active');
-
-    // rotate the DOM nodes so the next render uses the next layer as top
     overlay.appendChild(slides[0]);
   }
 
-  // initial
   render();
-
-  // rotate every 4 seconds (adjust if you want slower/faster)
   const interval = 4000;
-  let timer = setInterval(() => {
-    pos = (pos + 1) % images.length;
-    render();
-  }, interval);
+  let timer = setInterval(() => { pos = (pos + 1) % images.length; render(); }, interval);
 
-  // pause on hover (optional: for better UX)
   const section = document.querySelector('.slideshow-section');
   if (section) {
     section.addEventListener('mouseenter', () => { clearInterval(timer); timer = null; });
     section.addEventListener('mouseleave', () => { if (!timer) timer = setInterval(() => { pos = (pos + 1) % images.length; render(); }, interval); });
   }
 
-  // Respect reduced motion preference
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (mq && mq.matches) {
     clearInterval(timer);
-    const slides = overlay.querySelectorAll('.slide');
-    slides.forEach(s => s.style.transition = 'none');
+    overlay.querySelectorAll('.slide').forEach(s => s.style.transition = 'none');
   }
 })();
 </script>
+
+
+  
 
 </body>
 </html>
