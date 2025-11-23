@@ -420,6 +420,7 @@ body {
   RESPONSIVENESS (MOBILE VIEW)
 ======================================================
 */
+/* ====== RESPONSIVENESS (MOBILE VIEW) - FIXED ====== */
 @media (max-width: 768px) {
   .save-the-date-section { padding: 6rem 1rem 3rem 1rem; }
   .save-date-word { font-size: 2.8rem; }
@@ -429,51 +430,34 @@ body {
   .countdown { gap: 1rem; }
   .countdown span { font-size: 3.5rem; }
   .countdown div { font-size: 0.9rem; }
-  
-  /* Image/Story Section stacks on mobile */
+
   .image-text-section {
-      .image-text-section {
       flex-direction: column;
-      align-items: center; /* Tiyaking naka-center ang laman */
+      align-items: center;
       justify-content: center;
+      gap: 0;
+      padding: 0;
   }
   .photo-collage, .story-text-wrapper {
       width: 100%;
   }
-  .collage-main-img {
-      height: 250px; 
-  }
-  .small-img {
-      height: 100px; 
-  }
-  .story-text-wrapper {
-      padding: 2rem 1rem; 
-      text-align: center;
-  }
+  .collage-main-img { height: 250px; }
+  .small-img { height: 100px; }
+  .story-text-wrapper { padding: 2rem 1rem; text-align: center; }
 
-  /* Guest Info columns stack on mobile */
-  .guest-info-grid {
-      flex-direction: column;
-      gap: 1.5rem;
-  }
-  .info-column {
-      text-align: center;
-  }
+  .guest-info-grid { flex-direction: column; gap: 1.5rem; }
+  .info-column { text-align: center; }
   .info-column h3 {
       border-bottom: 1px solid var(--color-silver-accent);
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
       display: inline-block;
   }
-  .event-time-table {
-      font-size: 1.1rem;
-  }
+  .event-time-table { font-size: 1.1rem; }
 
-  /* Video fix for mobile */
-  .video-container {
-      padding-bottom: 65%;
-  }
+  .video-container { padding-bottom: 65%; }
 }
+
 
 /* 💌 Envelope Screen with Flap Style */
 .envelope-screen {
@@ -593,35 +577,4 @@ body {
   0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
   30% { opacity: 1; }
   100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
-}
-/* ===== TEMPORARY OVERRIDE: ensure envelope visible on all viewports ===== */
-#envelope, .envelope-screen {
-  display: flex !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 2147483647 !important;
-  background: #dbe5f1 !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  overflow: hidden !important;
-  transition: opacity 1s ease !important;
-}
-
-#envelope .heart-button, #envelope #heartBtn, .heart-button {
-  z-index: 2147483648 !important;
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: calc(40vh - 2.5rem) !important;
-}
-
-@media (max-width: 768px) {
-  #envelope .heart-button, #envelope #heartBtn, .heart-button {
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    font-size: 2.2rem !important;
-  }
 }
