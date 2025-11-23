@@ -583,9 +583,9 @@ body {
 .slideshow-section {
   position: relative;
   overflow: hidden;
-  padding-top: 3.5rem; /* adjust vertical spacing if needed */
-  padding-bottom: 3.5rem;
+  padding: 6rem 1rem;  /* dagdag spacing para hindi dumikit sa Save the Date */
 }
+
 
 .slideshow-overlay {
   position: absolute;
