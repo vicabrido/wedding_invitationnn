@@ -594,3 +594,60 @@ body {
   30% { opacity: 1; }
   100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
 }
+
+/* Force envelope visually on top and ensure full-screen coverage */
+.envelope-screen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999 !important; /* very high to override anything */
+  background: #dbe5f1;
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+/* Make glitter sit below the envelope */
+.glitter-container {
+  z-index: 99999; /* lower than envelope */
+}
+
+/* Ensure invitation content is under envelope initially */
+#invitation {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heart button: center vertically a bit higher on desktop, lower on mobile */
+.heart-button {
+  top: calc(40vh - 2.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000000; /* above envelope elements like flap */
+}
+
+/* Mobile tweak: smaller and a bit lower so it's easy to tap */
+@media (max-width: 768px) {
+  .heart-button {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.4rem;
+    padding: 0.8rem 1rem;
+  }
+  .envelope-flap {
+    border-top-width: 38vh; /* reduce flap height on small screens */
+  }
+  .envelope-body {
+    height: 62vh; /* tune for mobile */
+  }
+}
+
+/* Visible-by-default guard: in case some other rule hid it */
+#envelope.hidden, #envelope.fade-out {
+  /* do not rely on these - we'll control via JS */
+}
+
